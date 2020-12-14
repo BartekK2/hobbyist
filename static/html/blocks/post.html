@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/blocks/posty.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00, user-scalable=no">
+
+<div id="posts">
+			{% for Post in obiekty %}
+				<div class="post">
+						<div id="photo"><img src="{{ Post.picture.url }}" alt="Błąd przy wczytywaniu zdjęcia"></img></div>
+						<p id="title">{{Post.tytul}}</p>
+						<p id="content">{{Post.opis}}</p>
+						<div id="description">
+							<a href="{% url 'Profil' Post.autor.id %}"><p id="author">{{Post.autor}}</p></a><p id="date">{{Post.data|date:"d-m-Y"}}</p>
+						</div>
+				</div>
+			{% endfor %}.
+</div>

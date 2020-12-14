@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+	<title>Rejestracja</title>
+	<link rel="stylesheet" href="{% static 'css/log_reg.css' %}">
+{% endblock %}
+{% block body %}
+		<div class="login">
+			<form method="POST" action="" >
+				{% csrf_token %}
+					
+					{{form.username}}
+					<label data-content="Nazwa Uzytkownika" form=form.username>Nazwa Uzytkownika</label><br>
+					{{form.username.errors}}
+					{{form.email}}
+					<label data-content="Email*"form=form.email>Email*</label><br>
+					{{form.email.errors}}
+					{{form.password1}}
+					<label data-content="Hasło"form=form.password1>Hasło</label><br>
+					{{form.password1.errors}}
+					{{form.password2}}
+					<label data-content="Powtórz hasło"form=form.password2>Powtórz hasło</label><br>
+					{{form.password2.errors}}
+					{{profile_form.place}}
+					<label data-content="Wpisz swój kod pocztowy lub najbliższe miasto*"form=profile_form.place>Wpisz swój kod pocztowy lub najbliższe miasto*</label><br>
+					<p>Pola z * są nieobowiązkowe</p>
+			  <p>Masz już konto? <a href="{% url 'Logowanie' %}"data-content="Zaloguj się tutaj!">Zaloguj się tutaj!</a></p>
+			  <input type="submit" id="accept" name="Create User" value="Stwórz konto">
+			</form>
+		</div>
+		<div class="description"><p>Korzystając z naszej strony jednocześnie wyrażasz zgode na regulamin użytkowania.
+		Prosimy o nie podawanie prawdziwego nazwiska, używanie pseudonimu.</p></div>
+{% endblock %}

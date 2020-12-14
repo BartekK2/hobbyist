@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/blocks/newpost.css' %}">
+<button onclick="myFunction()" id="addnew">Dodaj post</button>
+	<script>
+		function myFunction() {
+			var x = document.getElementById("new_post");
+			if (x.style.visibility=="hidden") {
+				x.style.opacity = "100%";
+				x.style.visibility = "visible";
+			} else {
+				x.style.opacity = "0";
+				x.style.visibility = "hidden";
+				}
+			}
+	</script>
+<div id="new_post" style="visibility:hidden;">
+	<i id="close" onclick="myFunction()"class="fas fa-times-circle"></i>
+	<form method="POST" action="" enctype="multipart/form-data">
+		{% csrf_token %}
+		<label form=form.tytul>Tytuł: </label><br>
+		{{form.tytul}}
+		<label form=form.opis>Opis: </label><br>
+		{{form.opis}}
+		<div id="bottom_inf">
+			<label id="button_picture" for="id_picture">Wybierz zdjęcie</label>
+			{{form.picture}}
+			{{form.category}}
+			<input id="dodaj" type="submit" value="Dodaj post">
+		</div>
+	</form>
+</div>

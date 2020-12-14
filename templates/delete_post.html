@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+	<title>
+		{% if post.autor == request.user%}
+			Usuń Post
+		{% elif user == request.user %}
+			Usuń konto
+		{% endif %}
+	</title>
+	<link rel="stylesheet" href="{% static 'css/delete_view.css' %}">
+{% endblock %}
+{% block body %}
+	<main>
+		{% if post.autor == request.user%}
+			<p> Usunąć posta o tytule: {{post.tytul}} ?</p>
+			<form method="POST">
+				{% csrf_token %}
+				<button>Usuń posta</button>
+			</form>
+			<a href="{% url 'MeetMe!'%}"><button>Wróć</button></a>
+		{% elif user == request.user %}
+			<p> Usunąć konto użytkownika: {{user.username}} ?</p>
+			<form method="POST">
+				{% csrf_token %}
+				<button>Usuń konto razem z wszystkimi postami</button>
+			</form>
+			<a href="{% url 'MeetMe!'%}"><button>Wróć</button></a>
+		{% endif %}
+	</main>
+	{% include "navbar.html"%}
+{% endblock %}

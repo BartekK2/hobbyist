@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+	<title>Edycja profilu</title>
+	<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block body %}
+	<div id="profile">
+				<div id="contact">
+					<ul class="social-media-list">
+							<form method="POST" action="" enctype="multipart/form-data">
+								{% csrf_token %}
+								<li><i class="fab fa-facebook"></i>{{profile_form.fb}}</li>
+								<li><i class="fab fa-twitter"></i>{{profile_form.tt}}</li>
+								<li><i class="fab fa-instagram"></i>{{profile_form.ig}}</li>
+								<li><i class="fas fa-envelope"></i>{{profile_form.birthday}}</li>
+					</ul>
+				</div>
+				<div id="view">
+					<img id="profile_photo" 
+						{% if request.user.userprofile.profile_pic %}src="{{request.user.userprofile.profile_pic.url}}" 
+						{% else %} src = "{% static 'logo.png' %}" {% endif %}alt="error">
+						<span>{{ request.user.first_name }} {{ request.user.last_name }} ({{request.user.username}})<button type="submit" class="save"><i type="submit" class="fas fa-save"></i></button></span>
+						<div id="pic_input"><input type="file" name="profile_pic" accept="image/*" id="id_profile_pic"></div></img>
+				</div>
+				</form>
+				<div id="info">
+					<ul>
+						<li>Punkty: 29392xp</li>
+						<li>Założenie konta: {{profile_user.date_joined.date}}</li>
+						<li>Napisane posty: {{post_numbers}}</li>
+						<li>Poziom: 20lvl</li>
+					</ul>
+				</div>
+	</div>
+	<main>
+		{% include "post.html"%}
+	</main>
+	{% include "navbar.html"%}
+{% endblock %}

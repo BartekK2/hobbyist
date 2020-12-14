@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/blocks/navbar.css' %}">
+<button id="side-menu-trigger">Menu</button>
+<div id="navbar">
+		<div id="logo"><a href="{% url 'MeetMe!' %}"><img id="logo_photo" alt="logo"src="{% static 'logo.png' %}"></img></a></div>
+		<p id="hello">Witaj <span id="username_id">{{request.user}}</span>!</p>
+		<ul id="menu">
+                    <li class="nav" onclick="location.href='{% url 'MeetMe!' %}'"><i class="fas fa-comment-alt"></i>Posty</a></li>
+					<li class="nav" onclick="location.href='{% url 'Profil' request.user.id %}'"><i class="fas fa-address-card"></i>Profil</li>
+					<li class="nav"><i class="fas fa-users"></i><a href="index.html">O twórcach</a></li>
+					<li class="nav"><i class="fas fa-address-book"></i><a href="index.html">Kontakt</a></li>
+					<li class="nav"><i class="fas fa-info"></i><a href="index.html">Informacje</a></li>
+					<li class="nav" onclick="location.href='{% url 'Wylogowanie' %}'"href=>Wyloguj</li>
+		</ul>
+	</div>

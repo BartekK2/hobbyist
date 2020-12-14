@@ -1,0 +1,75 @@
+.container {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
+  grid-template-areas:
+    "sidebar profile profile profile"
+    "sidebar main main main"
+    "sidebar main main main"
+    "sidebar main main main";
+}
+.save{
+	margin-left:1vmin;
+	background:none;
+	color:var(--main);
+	border:none;
+}
+input {width:15vw;}
+main {
+	overflow-x:hidden;
+  background: var(--sec2);
+  grid-area: main;
+}
+
+#profile {
+  background: var(--sec3);
+  grid-area: profile;
+}
+#view{position:relative;grid-area:photo}
+#id_profile_pic, #pic_input{position:absolute;left:50%;transform:translate(-50%,-50%);top:40%;width:23vmin;height:23vmin;}
+#id_profile_pic {opacity:0;}
+#pic_input{background-color:#303030;border-radius:50%;border: solid 0.5vh #000000;
+transition:opacity 0.5s;opacity:60%}
+#pic_input:hover{opacity:90%}
+#profile_photo{position:relative;top:40%;transform:translate(0%,-50%);width: 23vmin;border-radius:50%;border: solid 0.5vh #000000; height: 23vmin;
+ object-fit: cover;display:block;margin:auto;
+ filter: drop-shadow(0 0.7vw 0.7vw #000000);background-color:var(--main)}
+#profile div span{position:absolute;bottom:0;left:0;width:100%;text-align:center;font-size:125%;}
+#profile{
+  display: grid;background: var(--sec2);
+	box-shadow: 1vw 1vw 0.75vw #000000;border-bottom: solid 0.5vh #000000;
+	grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "contact photo info";
+}
+#info{grid-area:info;width:100%;}
+#info>ul{height:100%;list-style-type: none;}
+#info>ul>li{font-size:95%;text-align:center;margin-top:2vmin;font-weight:bold}
+	
+#contact{
+	grid-area:contact;height:100%;left:0;top:0;}
+#contact>ul>li{text-decoration:none;margin-top:1vh;position:relative;width:100%;transition: 0.2s}
+#contact>ul>li:hover{font-size:150%;}
+#contact>ul>li>a{text-decoration: none;color:var(--main);}
+ul.social-media-list {list-style-type: none;}
+
+#edit_profile {
+	transition:transform 1s;
+	cursor: pointer;
+}
+#edit_profile:hover {transform: rotate(180deg);}
+.social-media-list{padding-left:1vw;}
+/*resizing*/
+@media only screen and (max-width: 540px) and (orientation: portrait) {
+	.container {
+		grid-template-columns: 1fr;
+		grid-template-rows: 0.3fr 1fr;
+		grid-template-areas:
+		"profile"
+		"main";
+	}
+	.post{
+	margin-left:20vw;
+	margin-right:20vw;}
+	#info>ul>li{font-size:65%;text-align:center;margin-top:2vmin;font-weight:bold}
+}

@@ -1,0 +1,118 @@
+/* navbar */
+#navbar {
+	height:100vh;
+	grid-area: sidebar;
+	z-index: 2;
+	background-color: var(--main);
+	box-shadow: 0.1vw 0 1.7vw #000000;
+	transition: width 1s;
+}
+
+
+#username_id {
+	color: var(--sec1)
+}
+
+#hello {
+	font-size: 3vmin;
+	margin: auto;
+	width: auto;
+	height:auto;
+	margin-top: 6vh;
+	color: var(--sec2);
+}
+
+#logo {
+	width: 15vmin;
+	height: 15vmin;
+	margin: auto;
+	transition: filter 0.3s;
+	margin-top: 15vh;
+	filter: drop-shadow(0 0.7vw 0.7vw #000000);
+}
+
+#logo:hover {
+	filter: drop-shadow(0 0vw 2vw #ffffff);
+}
+
+#logo_photo {
+	width: 100%;
+	height: 100%;
+}
+
+#menu {
+	padding: 0;
+}
+
+.nav {
+	width: 90%;
+	height:5vh;
+	margin-top: 2vh;
+	background-color: var(--sec1);
+	border: solid 0.5vmin var(--sec2);
+	color: var(--main);
+	font-size: 2.5vmin;
+	text-align: center;
+	transition: 0.2s;
+	cursor: pointer;
+	box-shadow: 0.3vw 0.3vw 0.8vw #000000;
+}
+
+.nav>i {
+	padding: 0.5vmin;
+}
+
+.nav>a {
+	white-space: nowrap;
+	display: inline-block;
+	text-decoration: none;
+	color: var(--text_color);
+}
+
+.nav:hover {
+	width: 98%;
+	font-size: 4vmin;
+}
+
+#side-menu-trigger {
+	opacity: 0;
+	position: fixed;
+}
+
+/* resizing */
+@media (max-width:520px) and (orientation: portrait){
+	#navbar {
+		position:fixed;
+		left: -120vw;
+		transition: left 1s ease-in-out;
+		width: 100vw;
+	}
+	#logo {
+		width: 15.75vw;
+		height: 15.75vw;
+	}
+	.nav {
+		height: 6vh;
+		font-size: 4vw;
+	}
+	#side-menu-trigger {
+		opacity: 100;
+		border: solid 0.5vw;
+		border-radius: 2vw;
+		z-index: 3;
+		left: 10vw;
+		top: 10vw;
+		font-size: 4vw;
+		width: 20vw;
+		height: 10vw;
+		transition: opacity 1s;
+		background-color: var(--main);
+		color: var(--sec1);
+	}
+	#side-menu-trigger:focus+#navbar {
+		left: 0px;
+	}
+	#side-menu-trigger:focus {
+		opacity: 0;
+	}
+}

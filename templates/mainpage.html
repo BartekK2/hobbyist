@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+	<title>Hobbyist - strona główna</title>
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+{% block body %}
+	<div id="filters">
+		<form method="GET">
+			<button id="filters_but" type="submit">Filtruj</button>
+			{% for field in myFilter.form %}
+					<div style="display:inline-block;">{{field.label}}{{field}}</div>
+			{% endfor %}
+		</form>
+	</div>
+	<main>	
+		{% include "newpost.html" %}
+		{% include "post.html"%}
+	</main>
+	{% include "navbar.html"%}
+	<footer>strona utworzona w ramach projektu zwolnieni z teorii</footer>
+{% endblock %}

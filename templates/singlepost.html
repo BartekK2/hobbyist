@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+	<title>Post {{post.id}}</title>
+	<link rel="stylesheet" href="{% static 'css/singlepost.css' %}">
+{% endblock %}
+{% block body %}
+		  <div id="post_content">
+			<div id="image">
+				<img
+					{% if post.picture %}
+						src="{{ post.picture.url }}"
+					{% else %} 
+						src = "{% static 'zzt.png' %}"
+					{% endif %}alt="Brak zdjęcia"
+				></img>
+			</div>
+			<p id="tytul">{{post.tytul}}</p>
+			<div id="information">
+				<a id="autor" href="{% url 'Profil' post.autor.id %}">{{post.autor}}</a><p id="data">{{post.data}}</p>
+			</div>
+			<p id="opis">{{post.opis}}</p>
+			<form method="POST" action="">
+				{% csrf_token %}
+				<div id="add_comment">
+					<label form=form.content>Dodaj swój komentarz: </label>	<input id="dodaj" type="submit" value="Dodaj"><br>
+					{{form.content}}<br>
+
+				</div>
+			</form>
+			
+			<div id="comments">
+				{% for comment in comments %}
+					<div style="display:inline-block" class="comment">
+					<img id="profile_pic"
+					{% if comment.autor.userprofile.profile_pic %}
+						src={{comment.autor.userprofile.profile_pic.url}} 
+					{% else %}
+						src = "{% static 'logo.png' %}"
+					{% endif %}
+					alt="brak zdjęcia"></img>
+					
+					<span id="autor" onclick="location.href='{% url 'Profil' comment.autor.id %}'">{{comment.autor.username}}</span>{{comment.date}}<br>
+					<span id="content">"{{comment.content}}"</span></div><br>
+				{% endfor %}
+			</div>
+		  </div>
+		  {% include "navbar.html"%}
+{% endblock %}

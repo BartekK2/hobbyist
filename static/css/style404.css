@@ -1,0 +1,9 @@
+#test {color:#ffffff;}
+.container {
+  grid-template-columns: 0.25fr 0.75fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "navbar error_text";
+}
+#error_text {grid-area:error_text;background:#202932;}
+#error_text>p {font-size:4vmin;display:block;margin:auto;margin-top:50vh;width:40vw;height:10vh}

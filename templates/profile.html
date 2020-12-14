@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+	<title>
+		{% if profile_user == request.user %}
+			Twój Profil
+		{% else %} 
+			Profil {{profile_user.username}}
+		{% endif %}
+	</title>
+	<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block body %}
+	<div id="profile">
+		<div id="contact">
+			<ul class="social-media-list">
+				{% if profile_user.userprofile.fb %}
+					<li><a target="_blank" href="{{ profile_user.userprofile.fb }}"><i class="fab fa-facebook"></i></a></li>
+				{% endif %}
+				{% if profile_user.userprofile.tt %}
+					<li><a target="_blank" href="{{ profile_user.userprofile.tt }}"><i class="fab fa-twitter"></i></a></li>
+				{% endif %}
+				{% if profile_user.userprofile.ig %}
+					<li><a target="_blank" href="{{ profile_user.userprofile.ig }}"><i class="fab fa-instagram"></i></a></li>
+				{% endif %}
+				{% if profile_user.email %}
+					<li><a target="_blank" href="mailto:{{ profile_user.email }}"><i class="fas fa-envelope"></i></a></li>
+				{% endif %}
+			</ul>
+		</div>
+		<div id="view">
+			<img id="profile_photo" 
+				{% if profile_user.userprofile.profile_pic %}src="{{profile_user.userprofile.profile_pic.url}}" 
+				{% else %} src = "{% static 'logo.png' %}" {% endif %}
+			alt="error"><span>{{ profile_user.first_name }} {{ profile_user.last_name }} ({{profile_user.username}})
+			{% if profile_user == request.user %}
+				<i id="edit_profile" onclick="location.href='{% url 'edit_profile' %}'" class="fas fa-cog"></i>
+			{% endif %}
+			</span></img>
+		</div>
+		<div id="info">
+			<ul>
+				<li>Punkty: 29392xp</li>
+				<li>Założenie konta: {{profile_user.date_joined.date}}</li>
+				<li>Napisane posty: {{post_numbers}}</li>
+				{% if profile_user.userprofile.place %}
+					<li>Miejscowość: {{profile_user.userprofile.place}}</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+	<main>
+	{% if request.user == profile_user %}
+		{% include "newpost.html" %}
+	{% endif %}
+		{% include "post.html"%}
+	</main>
+	{% include "navbar.html"%}
+{% endblock %}
