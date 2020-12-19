@@ -1,32 +1,32 @@
 from django.db import models
 from pathlib import Path
-import os
 from django.contrib.auth.models import User
-from django.conf import settings
-from datetime import date
-from django.urls import reverse
-from django import forms
+# To automatycznie zmienia rozdzielczość i format pliku na najodpowiedniejszy
+from django_resized import ResizedImageField
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100, blank=True)
+
     def __str__(self):
         return self.name
+
+
 class Post(models.Model):
     tytul = models.CharField(max_length=60)
     opis = models.CharField(max_length=800, blank=True, null=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE, default='')
     data = models.DateTimeField(auto_now_add=True)
-    picture = models.ImageField(upload_to='gallery/', blank=True)
+    picture = ResizedImageField(size=[900, 700], quality=40,  upload_to='gallery/', blank=True)
     category = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=100, blank=True)
+
     def __str__(self):
         return str(self.autor) + ' - Post Id: ' + str(self.id)
 
-    def get_absolute_url(self):
-        return reverse('MeetMe!')
 
 
 class UserProfile(models.Model):
@@ -36,12 +36,10 @@ class UserProfile(models.Model):
     tt = models.URLField(max_length=100, blank=True)
     birthday = models.DateField(null=True, blank=True)
     place = models.CharField(max_length=200, blank=True)
-    lat = models.CharField(max_length=100, blank=True)
-    lng = models.CharField(max_length=100, blank=True)
-    profile_pic = models.ImageField(upload_to='gallery/', blank=True)
+    profile_pic = ResizedImageField(size=[700, 700], quality=40, upload_to='gallery/', blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user.username + " UP"
 
 class Comment(models.Model):
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
