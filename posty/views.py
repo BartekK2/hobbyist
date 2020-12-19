@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404  # Rendering
-from .forms import *  # Forms
-from django.conf import settings  # Settings
+from .forms import *
 # Models
 from .models import Post, Comment
 from django.contrib.auth.models import User
@@ -11,10 +10,7 @@ from django.contrib import messages
 from .filters import PostFilter  # Filter posts by for example category etc.
 from django.core.paginator import Paginator  # Next and previous pages
 from geopy.geocoders import Nominatim  # Get city by address for example post card
-# HTML EMAIL
-from django.core.mail import EmailMultiAlternatives
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
+from .utils import *
 
 
 # ...PROFILE & USERS...
@@ -31,7 +27,7 @@ def login_page(request, *args, **kwargs):
                 login(request, user)
                 return redirect('MeetMe!')
             else:
-                messages.info(request, 'Login lub hasło nie poprawne')
+                messages.error(request, 'Login lub hasło nie poprawne')
         return render(request, "login.html", kontekst)
 
 
@@ -57,31 +53,27 @@ def registration(request):
                             location_ = profile_form.cleaned_data.get('place')
                             location = geolocator.geocode(location_, addressdetails=True, timeout=None)
                             info = location.raw['address']
-                            # sprawdz czy dana wartosc zwroci miasto czy wieś i uzyskaj to co zwróciła
-                            city = info['city'] if 'city' in info else info['village']
+                            print(info)
+                            # Poszukaj wśród danych zwróconych możliwe dane zwracające np miasto wieś itd
+                            possibilities = ['city', 'village', 'administrative']
+                            city = ""
+                            for x in possibilities:
+                                if x in info:
+                                    city = info[x]
+                            if city == "":
+                                raise ValueError('Nie ustalono')
                             profile.place = city
                         except:
                             profile.place = ''
-                            messages.success(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
+                            messages.warning(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
                     profile.user = user
                     profile.save()
-                    # Sending emails
-                    if form.cleaned_data.get("email"):
-                        html_email = render_to_string("email_template.html", {'username': form.cleaned_data.get('username')})
-                        text_email = strip_tags(html_email)
-                        email = EmailMultiAlternatives(
-                            'Hobbyist.pl Podziękowanie za rejestracje',
-                            text_email,
-                            settings.EMAIL_HOST_USER,
-                            [form.cleaned_data.get('email')],
-                        )
-                        email.attach_alternative(html_email, "text/html")
-                        email.send()
+                    send_email(form, 'Hobbyist.pl Podziękowanie za rejestracje')
                     username = form.cleaned_data.get('username')
                     messages.success(request, f'Konto użytkownika {username} zostało stworzone.')
                     return redirect('Logowanie')
                 else:
-                    messages.success(request, 'Istnieje już użytkownik z takim Emailem prosze wybierz inny lub zaloguj sie na swoje konto')
+                    messages.error(request, 'Istnieje już użytkownik z takim Emailem prosze wybierz inny lub zaloguj sie na swoje konto')
         kontekst = {'form': form, 'profile_form': profile_form}
         return render(request, "registration.html", kontekst)
 
@@ -184,9 +176,12 @@ def index(request):
             post.autor = request.user
             post.city = request.user.userprofile.place
             post.save()
-    obiekty = Post.objects.filter().order_by('-id')
-    myFilter = PostFilter(request.GET, queryset=obiekty)
-    obiekty = myFilter.qs
+    if 'city' in request.GET:
+        # nowy sącz -> Nowy Sącz, kraków -> Kraków
+        request.GET = request.GET.copy()  # odpakuj żeby dało się zmienić wartość
+        request.GET['city'] = request.GET['city'].title()  # Zmień wartość na tą samą ale z dużych liter
+    myFilter = PostFilter(request.GET, queryset=Post.objects.filter())
+    obiekty = myFilter.qs.order_by('-id')
     paginator = Paginator(obiekty, 12)
     strona = request.GET.get('strona')
     obiekty = paginator.get_page(strona)
