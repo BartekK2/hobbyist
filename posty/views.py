@@ -18,7 +18,7 @@ from django.utils.html import strip_tags
 
 
 # ...PROFILE & USERS...
-def login(request, *args, **kwargs):
+def login_page(request, *args, **kwargs):
     if request.user.is_authenticated:
         return redirect('MeetMe!')
     else:
@@ -44,46 +44,44 @@ def registration(request):
     if request.user.is_authenticated:
         return redirect('MeetMe!')
     else:
-        form = CreateUserForm()
-        profile_form = UserProfileForm()
+        form, profile_form = CreateUserForm(), UserProfileForm()
         geolocator = Nominatim(user_agent='meet_my')
         if request.method == 'POST':
-            form = CreateUserForm(request.POST)
-            profile_form = UserProfileForm(request.POST)
+            form, profile_form = CreateUserForm(request.POST), UserProfileForm(request.POST)
             if form.is_valid() and profile_form.is_valid():
-                user = form.save()
-                profile = profile_form.save(commit=False)
-                # When user gave his address
-                if profile_form.cleaned_data.get('place') != "":
-                    try:
-                        location_ = profile_form.cleaned_data.get('place')
-                        location = geolocator.geocode(location_, addressdetails=True, timeout=None)
-                        lat = location.latitude
-                        lng = location.longitude
-                        city = location.raw['address']['city']
-                        profile.place = city
-                        profile.lat = lat
-                        profile.lng = lng
-                    except:
-                        profile.place = ''
-                        messages.success(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
-                profile.user = user
-                profile.save()
-                # Sending emails
-                if form.cleaned_data.get('email') != "":
-                    html_email = render_to_string("email_template.html", {'username': form.cleaned_data.get('username')})
-                    text_email = strip_tags(html_email)
-                    email = EmailMultiAlternatives(
-                        'Hobbyist.pl Podziękowanie za rejestracje',
-                        text_email,
-                        settings.EMAIL_HOST_USER,
-                        [form.cleaned_data.get('email')],
-                    )
-                    email.attach_alternative(html_email, "text/html")
-                    email.send()
-                username = form.cleaned_data.get('username')
-                messages.success(request, f'Konto użytkownika {username} zostało stworzone.')
-                return redirect('Logowanie')
+                if is_field_unique(form, "email", User):
+                    user, profile = form.save(), profile_form.save(commit=False)
+                    # Saving address
+                    if profile_form.cleaned_data.get('place') != "":
+                        try:
+                            location_ = profile_form.cleaned_data.get('place')
+                            location = geolocator.geocode(location_, addressdetails=True, timeout=None)
+                            info = location.raw['address']
+                            # sprawdz czy dana wartosc zwroci miasto czy wieś i uzyskaj to co zwróciła
+                            city = info['city'] if 'city' in info else info['village']
+                            profile.place = city
+                        except:
+                            profile.place = ''
+                            messages.success(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
+                    profile.user = user
+                    profile.save()
+                    # Sending emails
+                    if form.cleaned_data.get("email"):
+                        html_email = render_to_string("email_template.html", {'username': form.cleaned_data.get('username')})
+                        text_email = strip_tags(html_email)
+                        email = EmailMultiAlternatives(
+                            'Hobbyist.pl Podziękowanie za rejestracje',
+                            text_email,
+                            settings.EMAIL_HOST_USER,
+                            [form.cleaned_data.get('email')],
+                        )
+                        email.attach_alternative(html_email, "text/html")
+                        email.send()
+                    username = form.cleaned_data.get('username')
+                    messages.success(request, f'Konto użytkownika {username} zostało stworzone.')
+                    return redirect('Logowanie')
+                else:
+                    messages.success(request, 'Istnieje już użytkownik z takim Emailem prosze wybierz inny lub zaloguj sie na swoje konto')
         kontekst = {'form': form, 'profile_form': profile_form}
         return render(request, "registration.html", kontekst)
 
