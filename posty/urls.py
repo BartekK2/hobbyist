@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='MeetMe!'),
-    path('login/', views.login, name='Logowanie'),
+    path('login/', views.login_page, name='Logowanie'),
     path('wyloguj/', views.logout_user, name='Wylogowanie'),
     path('profile/<int:pk>', views.profile, name='Profil'),
     path('post/<int:pk>', views.show_post, name='S_post'),
