@@ -15,6 +15,9 @@
 					{{form.email}}
 					<label data-content="Email*"form=form.email>Email*</label><br>
 					{{form.email.errors}}
+					{% for message in messages %}
+						<p id="messages">{{ message | safe }}</p>
+					{% endfor %}
 					{{form.password1}}
 					<label data-content="Hasło"form=form.password1>Hasło</label><br>
 					{{form.password1.errors}}
