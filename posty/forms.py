@@ -13,7 +13,6 @@ choice_list.sort()
 
 # Błąd podczas tworzenia migracji ale działa poprawnie dopuki nie rozwiazesz problemu uzywaj
 # python manage.py makemigrations posty python manege.py migrate :)
-User._meta.get_field('email')._unique = True
 
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField(required=False, max_length=100)
