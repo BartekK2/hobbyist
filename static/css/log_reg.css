@@ -1,6 +1,6 @@
 body{
 	color: var(--sec1);
-	background-color: var(--main);
+	background: url("/static/img/zdj.jpg"), var(--main);
 	margin:10vmin;
 }
 
@@ -54,7 +54,7 @@ body{
 .description>p{padding-top:4vh;margin:auto;}
 
 a {
-	color: var(--sec2);
+	color: var(--sec2) !important;
 	text-decoration: none;
 }
 

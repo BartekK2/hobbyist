@@ -6,10 +6,10 @@
 }
 /* post content */
 #image{margin-top:4vh;max-height:40vh;width:100%;align:center;}
-#image>img{border-radius:2vw;max-height:40vh;max-width:90%;box-shadow: 0vw 0.5vw 1.5vw;object-fit: scale-down;  display: block;
+#image>img{border-radius:2vmax;max-height:40vh;max-width:90%;box-shadow: 0vw 0.5vw 1.5vw;object-fit: scale-down;  display: block;
   margin-left: auto;
   margin-right: auto;}
-#tytul{width:100%;margin-bottom:0;word-break:break-word;text-align:center;font-size:135%;}
+#tytul{width:100%;margin-top:2vh;word-break:break-word;text-align:center;font-size:135%;}
 #post_content{overflow-y:auto;overflow-x:hidden;width:100%;}
 #information{margin:5vh 15vmin 0 15vmin;}
 #autor{padding-right:1vmin;color: var(--sec1);text-decoration:none;}

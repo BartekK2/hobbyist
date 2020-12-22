@@ -64,7 +64,6 @@
 .nav>a {
 	white-space: nowrap;
 	display: inline-block;
-	text-decoration: none;
 	color: var(--text_color);
 }
 

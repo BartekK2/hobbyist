@@ -13,7 +13,6 @@
 	color:var(--main);
 	border:none;
 }
-input {width:15vw;}
 main {
 	overflow-x:hidden;
   background: var(--sec2);
