@@ -191,6 +191,9 @@ def index(request):
         "myFilter": myFilter,
     }
     return render(request, "mainpage.html", kontekst)
+<<<<<<< HEAD
 
 def info(request):
     return render(request, "info.html")
+=======
+>>>>>>> c9ac0423370cae63b8287505511c215f0a989a6c

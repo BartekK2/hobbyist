@@ -18,9 +18,15 @@ form label{color:var(--sec1);}
 
 #bottom_inf{margin-top:4vmin;}
 #bottom_inf *{margin-top:2vmin;}
+<<<<<<< HEAD
 #button_picture{background-color:#303030;border-radius:1vmin;cursor:pointer;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
 #dodaj {border:none;cursor:pointer;}
 /* Przycisk dodania postu  (MENU) */
+=======
+#id_picture{visibility:hidden;width:0;}
+#button_picture{background-color:#303030;padding:1.5vmin;border-radius:1vmin;cursor:pointer;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
+#dodaj {border:none;cursor:pointer;padding:0.5vmin 1.5vmin;}
+>>>>>>> c9ac0423370cae63b8287505511c215f0a989a6c
 #addnew {
 	position: relative;
     display: inline-block;
