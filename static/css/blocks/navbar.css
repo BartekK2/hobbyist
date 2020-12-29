@@ -1,4 +1,3 @@
-/* navbar */
 #navbar {
 	grid-area: sidebar;
 	z-index: 2;
@@ -6,14 +5,6 @@
 	box-shadow: 0.1vw 0 1.7vw #000000;
 	transition: width 1s;
 	height:100vh;
-}
-
-/* navbar view */
-#username_id {
-	color: var(--sec1);
-	font-size:100%;
-	text-transform: capitalize;
-	word-break:break-all;
 }
 
 #hello {
@@ -25,23 +16,24 @@
 	color: var(--sec2);
 }
 
-#logo {
-	width: 15vmin;
-	height: 15vmin;
-	margin: auto;
-	transition: filter 0.3s;
-	margin-top: 15vh;
-	filter: drop-shadow(0 0.7vw 0.7vw #000000);
-}
-
-#logo:hover {
-	filter: drop-shadow(0 0vw 2vw #ffffff);
+#username_id {
+	color: var(--sec1);
+	font-size:100%;
+	text-transform: capitalize;
+	word-break:break-all;
 }
 
 #logo_photo {
-	width: 100%;
-	height: 100%;
+	width: 15vmin;
+	height: 15vmin;
+	display:block;
+	margin: auto;
+	cursor:pointer;
+	margin-top: 15vh;
+	filter: drop-shadow(0 0.7vw 0.7vw #000000);
+	transition: filter 0.3s;
 }
+#logo_photo:hover{filter: drop-shadow(0 0vw 2vw #ffffff);}
 
 .nav {
 	width: 90%;
@@ -51,9 +43,9 @@
 	color: var(--main);
 	font-size: 100%;
 	text-align: center;
-	transition:width 0.2s, font-size 0.2s;
 	cursor: pointer;
 	box-shadow: 1vmin 1vmin 2vmin #000000;
+	transition:0.2s;
 }
 
 .nav>i {
@@ -61,24 +53,17 @@
 	font-size:100%;
 }
 
-.nav>a {
-	white-space: nowrap;
-	display: inline-block;
-	color: var(--text_color);
-}
-
 .nav:hover {
 	width: 100%;
 	font-size: 160%;
 }
 
-/* side menu 4 phone */
 #side-menu-trigger {
+    display:none;
 	opacity: 0;
 	position: fixed;
 }
 
-/* telki */
 @media screen and (max-width:540px) and (orientation: portrait){
 	#navbar {
 		position:fixed;
@@ -86,29 +71,29 @@
 		transition: left 1s ease-in-out;
 		width: 100vw;
 	}
-	#logo {
-		width: 15.75vw;
-		height: 15.75vw;
+	#logo_photo {
+		width: 25vw;
+		height: 25vw;
 	}
 	.nav {
 		height: 6vh;
 	}
 	#side-menu-trigger {
+	    display:inline-block;
+		top: 50vh;
+		left: 3vw;
+		width: 15vmin;
+		height: 15vmin;
+		z-index: 3;
+		background-color: var(--main);
+		color: var(--sec1);
 		opacity: 100;
 		border: none;
 		border-radius: 50%;
-		z-index: 3;
-		left: 3vw;
-		top: 50vh;
-		bottom:0;
 		font-size: 4vmin;
-		filter: drop-shadow(2vmin 1vmin 2vmin #000000);
 		text-align:center;
-		width: 15vmin;
-		height: 15vmin;
+		filter: drop-shadow(2vmin 1vmin 2vmin #000000);
 		transition: opacity 1s;
-		background-color: var(--main);
-		color: var(--sec1);
 	}
 	#side-menu-trigger:focus+#navbar {
 		left: 0px;

@@ -1,10 +1,18 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/blocks/bottom.css' %}">
-<div id="buttons">
-			<button class="buttony"id="prev">Poprzednia</button>
-			<button class="buttony"id="next">Nastepna</button>
-			<button class="buttony"id="actual">1</button>
-			<button class="buttony"id="button_a1">2</button>
-			<button class="buttony"id="button_a2">3</button>
-			<button class="buttony"id="button_a3">4</button>
+
+<!--- Do poprawy, wytłumaczenie na przyszłość: onclick="location.href=(numer strony)+jeżeli istnieją inne
+dane które nie są danymi o stronie to je dodaj &dane=wartość -->
+<div id="next_page_bar">
+	{% if obiekty.has_previous %}
+		<button id="prev_page"
+			onclick="location.href='?strona={{ obiekty.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'strona' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}'"
+		>Poprzednia Strona</button>
+	{% endif %}
+
+	{% if obiekty.has_next %}
+		<button id="next_page"
+			onclick="location.href='?strona={{ obiekty.next_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'strona' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}'"
+		>Następna Strona</button>
+	{% endif %}
 </div>

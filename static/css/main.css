@@ -1,5 +1,5 @@
 main {
-  overflow-x:hidden;
+  overflow-x:overlay;
   background: var(--sec2);
   grid-area: main;
 }
@@ -67,9 +67,9 @@ input[type="date"]:focus::-webkit-calendar-picker-indicator {
 @media only screen and (max-width: 540px) and (orientation: portrait) {
   .container {
     grid-template-columns: 1fr;
-    grid-template-rows: 0.15fr 0.70fr 0.15fr;
+    grid-template-rows: 0.3fr 1fr 0.3fr;
     grid-template-areas:
-		"footer"
+		"filters"
 		"main"
 		"footer";
   }

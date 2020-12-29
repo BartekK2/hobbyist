@@ -3,12 +3,15 @@
 <div id="posts">
 			{% for Post in obiekty %}
 				<div onclick="location.href='{% url 'S_post' Post.id %}'" class="post">
-						<div id="photo"><img 
-						{% if Post.picture %}
-							src="{{ Post.picture.url }}"
-						{% else %} 
-							src = "{% static 'zzt.png' %}" {
-						{% endif %}alt="Brak zdjęcia"></img></div>
+						<div id="photo">
+							<img
+								{% if Post.picture %}
+									src="{{ Post.picture.url }}"
+								{% else %}
+									src = "{% static 'zzt.png' %}" {
+								{% endif %}alt="Brak zdjęcia">
+							</img>
+						</div>
 						<p id="title">{{Post.tytul}}</p>
 						<p id="content" ><a id="category" href="/?category={{Post.category}}">#{{Post.category}}</a><br><br>{{Post.opis}}</p>
 						<div id="description">
@@ -21,18 +24,4 @@
 			{% endfor %}
 </div>		
 
-<!--- Do poprawy, wytłumaczenie na przyszłość: onclick="location.href=(numer strony)+jeżeli istnieją inne 
-dane które nie są danymi o stronie to je dodaj &dane=wartość -->
-<div id="next_page_bar">
-	{% if obiekty.has_previous %}
-		<div id="prev_page"
-			onclick="location.href='?strona={{ obiekty.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'strona' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}'"
-		>Poprzednia Strona</div>
-	{% endif %}
-	
-	{% if obiekty.has_next %}	
-		<div id="next_page" 
-			onclick="location.href='?strona={{ obiekty.next_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'strona' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}'"
-		>Następna Strona</div>
-	{% endif %}
-</div>
+{% include "bottom.html"%}

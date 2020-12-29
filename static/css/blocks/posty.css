@@ -4,7 +4,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20vw, auto));
     grid-auto-rows: auto;
-    gap: 1vw;
     font-family: sans-serif;
     padding-top: 3vw;
 	margin-bottom:2vh;
@@ -68,21 +67,7 @@ a{text-decoration:none; }
 #delete{color:var(--main);margin:0;transition:0.5s;}
 #delete:hover{color: var(--sec1)}
 #date{margin-right:1vmin;margin:0;}
-#next_page, #prev_page{
-	display:inline-block;
-	font-size:70%;
-	width:25%;
-	height:auto;
-	font-size:100%;
-	text-align:center;
-	border-radius:10vw;
-	margin:3vh 0;
-	border: solid 0.25vw var(--main);
-	cursor:pointer;
-	
-}
-#next_page{margin-right:10vw;float: right;}
-#prev_page{margin-left:10vw;float: left;background-color:var(--sec1);}
+
 
 @media (max-width:720px) and (orientation: portrait) {
 	#posts{grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));}

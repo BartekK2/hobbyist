@@ -34,7 +34,7 @@ class UserProfile(models.Model):
     fb = models.URLField(max_length=100, blank=True)
     ig = models.URLField(max_length=100, blank=True)
     tt = models.URLField(max_length=100, blank=True)
-    birthday = models.DateField(null=True, blank=True)
+    birthday = models.DateField(blank=True, null=True)
     place = models.CharField(max_length=200, blank=True)
     profile_pic = ResizedImageField(size=[700, 700], quality=40, upload_to='gallery/', blank=True)
 

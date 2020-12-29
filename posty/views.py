@@ -124,7 +124,7 @@ def delete_user(request, pk):
         if request.method == "POST":
             obj.delete()
             return redirect('Logowanie')
-        kontekst = {"user":obj}
+        kontekst = {"user": obj}
         return render(request, "delete_post.html", kontekst)
     else:
         return redirect('MeetMe!')
@@ -191,9 +191,6 @@ def index(request):
         "myFilter": myFilter,
     }
     return render(request, "mainpage.html", kontekst)
-<<<<<<< HEAD
 
 def info(request):
     return render(request, "info.html")
-=======
->>>>>>> c9ac0423370cae63b8287505511c215f0a989a6c

@@ -1,46 +1,17 @@
-#new_post{
-	position:fixed;
-	transition: cubic-bezier(0, 0, 1, 1) 0.5s;
-	left:50%;
-	top:50%;
-	transform: translate(-50%,-50%);
-	background: var(--main);
-	padding:3vw;
-	opacity:0;
-	width:40vw;
-	border-radius:1vmax;
-	box-shadow: 0.7vw 0.7vw 3vw 1vw;
-	z-index:10;
-}
-form *{color:var(--sec2);border:none;}
-form input, textarea, select{background:#303030;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
-form label{color:var(--sec1);}
-
-#bottom_inf{margin-top:4vmin;}
-#bottom_inf *{margin-top:2vmin;}
-<<<<<<< HEAD
-#button_picture{background-color:#303030;border-radius:1vmin;cursor:pointer;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
-#dodaj {border:none;cursor:pointer;}
-/* Przycisk dodania postu  (MENU) */
-=======
-#id_picture{visibility:hidden;width:0;}
-#button_picture{background-color:#303030;padding:1.5vmin;border-radius:1vmin;cursor:pointer;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
-#dodaj {border:none;cursor:pointer;padding:0.5vmin 1.5vmin;}
->>>>>>> c9ac0423370cae63b8287505511c215f0a989a6c
+/* przycisk dodaj post */
 #addnew {
 	position: relative;
     display: inline-block;
 	margin-top:2vh;
-	border-radius:1vw;
+	border-radius:2vh;
 	border:none;
 	background: var(--main);
 	color: var(--sec1);
-	display:block;
 	margin-left:50%;
 	transform: translate(-50%,0);
 	width:27%;
 	font-size:85%;
-	height:6vh;
+	padding:1.5vmin 1.5vmax;
 	transition: 0.2s;
 	cursor: pointer;
 	transform-style: preserve-3d;
@@ -62,8 +33,31 @@ form label{color:var(--sec1);}
 #addnew:hover::before{ transform: translate3d(0, 0.5em, -1em);}
 #addnew:active{transform: translate(-50%, 0.75em);}
 #addnew:active::before{transform: translate3d(0, 0, -1em);}
+/* formularz i okienko posta */
+#new_post{
+	position:fixed;
+	transition: cubic-bezier(0, 0, 1, 1) 0.5s;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	background: var(--main);
+	padding:3vw;
+	opacity:0;
+	width:40vw;
+	border-radius:1vmax;
+	box-shadow: 0.7vw 0.7vw 3vw 1vw;
+	z-index:10;
+}
+form *{color:var(--sec2);border:none;}
+form input, textarea, select{background:#303030;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
+form label{color:var(--sec1);}
 
-
+#bottom_inf{margin-top:4vmin;}
+#bottom_inf *{margin-top:2vmin;}
+#button_picture{background-color:#303030;border-radius:1vmin;cursor:pointer;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
+#dodaj {border:none;cursor:pointer;}
+#button_picture{background-color:#303030;padding:1.5vmin;border-radius:1vmin;cursor:pointer;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
+#dodaj {border:none;cursor:pointer;padding:0.5vmin 1.5vmin;}
 #close{position:fixed;cursor: pointer;right:1vw;top:1vh;color:var(--sec1);transition:1s;}
 #close:hover{transform: rotate(180deg);}
 #id_tytul{

@@ -13,20 +13,42 @@
 {% block body %}
 	<main>
 		{% if post.autor == request.user%}
-			<p> Usunąć posta o tytule: {{post.tytul}} ?</p>
+			<p class="ask"> Usunąć posta o tytule: {{post.tytul}} ?</p>
+				<div class="post">
+					<div id="photo"><img
+					{% if post.picture %}
+						src="{{ post.picture.url }}"
+					{% else %}
+						src = "{% static 'zzt.png' %}" {
+					{% endif %}alt="Brak zdjęcia"></img></div>
+					<p id="title">{{post.tytul}}</p>
+					<p id="content" ><a id="category" href="/?category={{post.category}}">#{{post.category}}</a><br><br>{{post.opis}}</p>
+					<div id="description">
+						<a href="{% url 'Profil' post.autor.id %}"><p id="author">{{post.autor}}</p></a><p id="date">{{post.data|date:"d-m-Y"}}</p>
+					</div>
+				</div>
+
 			<form method="POST">
 				{% csrf_token %}
-				<button>Usuń posta</button>
+				<button class="confirm">Usuń posta</button>
 			</form>
-			<a href="{% url 'MeetMe!'%}"><button>Wróć</button></a>
+			<a href="{% url 'MeetMe!'%}"><button class="deny">Wróć</button></a>
+
+
 		{% elif user == request.user %}
-			<p> Usunąć konto użytkownika: {{user.username}} ?</p>
+			<p class="ask"> Usunąć konto użytkownika: {{user.username}} ?</p>
+			<img id="profile_pic" {% if user.userprofile.profile_pic %}src="{{user.userprofile.profile_pic.url}}"
+				 {% else %} src = "{% static 'logo.png' %}"
+				 {% endif %}/>
+
+			<p id="profile_name">{{user.username}}</p>
 			<form method="POST">
 				{% csrf_token %}
-				<button>Usuń konto razem z wszystkimi postami</button>
+				<button class="confirm">Usuń konto</button>
 			</form>
-			<a href="{% url 'MeetMe!'%}"><button>Wróć</button></a>
+			<a href="{% url 'Profil' request.user.id %}"><button class="deny">Wróć</button></a>
 		{% endif %}
+
 	</main>
 	{% include "navbar.html"%}
 {% endblock %}

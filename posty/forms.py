@@ -23,12 +23,12 @@ class CreateUserForm(UserCreationForm):
 
 
 class CreatePostForm(forms.ModelForm):
-    tytul = forms.CharField(required=True)
+    tytul = forms.CharField(required=True, max_length=50)
     class Meta:
         model = Post
         fields = ['tytul', 'opis', 'picture', 'category']
         widgets = {
-            'opis': Textarea(attrs={'cols': 80, 'rows': 20,'required': True}),
+            'opis': Textarea(attrs={'cols': 80, 'rows': 20, 'required': True}),
             'category': forms.Select(choices=choice_list),
         }
 

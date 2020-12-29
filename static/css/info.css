@@ -31,6 +31,7 @@ p{height:25vh;margin-top:5vh !important;overflow-y:auto;text-align: center;}
 .info_block{
     border:solid 0.5vmin;
 }
+p{overflow-x:hidden;}
 
 /*resizing*/
 @media only screen and (max-width: 540px) and (orientation: portrait) {
@@ -42,5 +43,5 @@ p{height:25vh;margin-top:5vh !important;overflow-y:auto;text-align: center;}
   }
 }
 @media (max-width:720px) and (orientation: portrait) {
-	#info_blocks{grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));}
+	#info_blocks{grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));}
 }
