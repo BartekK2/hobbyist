@@ -1,0 +1,30 @@
+.container {
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "sidebar main";
+}
+main {
+  overflow-x:hidden;
+  background: var(--sec2);
+  grid-area: main;
+}
+
+.information {
+    display:flex;
+    margin-bottom:5vh;
+    margin: 10vh 10vw 10vh 10vw;
+    align:center;
+    height:20vh;
+    justify-content:center;
+}
+.inf_text{
+    text-align:justify;
+    overflow-y:auto;
+}
+
+.inf_img{
+    height:20vh;
+}
+#title_inf{font-size:200%;text-align:center;margin-top:5vh;}
+#everyone{font-size:120%;text-align:center;margin-top:2vh;margin-left:10vw;margin-right:10vw;}

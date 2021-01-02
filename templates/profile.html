@@ -15,13 +15,13 @@
 		<div id="contact">
 			<ul class="social-media-list">
 				{% if profile_user.userprofile.fb %}
-					<li><a target="_blank" href="{{ profile_user.userprofile.fb }}"><i id = "facebook" class="fab fa-facebook"></i></a></li>
+					<li><a target="_blank" href="https://www.facebook.com/{{ profile_user.userprofile.fb }}"><i id = "facebook" class="fab fa-facebook"></i></a></li>
 				{% endif %}
 				{% if profile_user.userprofile.tt %}
-					<li><a target="_blank" href="{{ profile_user.userprofile.tt }}"><i id = "twitter" class="fab fa-twitter"></i></a></li>
+					<li><a target="_blank" href="https://www.twitter.com/{{ profile_user.userprofile.tt }}"><i id = "twitter" class="fab fa-twitter"></i></a></li>
 				{% endif %}
 				{% if profile_user.userprofile.ig %}
-					<li><a target="_blank" href="{{ profile_user.userprofile.ig }}"><i id = "instagram" class="fab fa-instagram"></i></a></li>
+					<li><a target="_blank" href="https://www.instagram.com/{{ profile_user.userprofile.ig }}"><i id = "instagram" class="fab fa-instagram"></i></a></li>
 				{% endif %}
 				{% if profile_user.email %}
 					<li><a target="_blank" href="mailto:{{ profile_user.email }}"><i id = "mail" class="fas fa-envelope"></i></a></li>

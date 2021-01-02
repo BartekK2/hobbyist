@@ -31,11 +31,10 @@ class Post(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    fb = models.URLField(max_length=100, blank=True)
-    ig = models.URLField(max_length=100, blank=True)
-    tt = models.URLField(max_length=100, blank=True)
-    birthday = models.DateField(blank=True, null=True)
-    place = models.CharField(max_length=200, blank=True)
+    fb = models.CharField(max_length=100, blank=True)
+    ig = models.CharField(max_length=100, blank=True)
+    tt = models.CharField(max_length=100, blank=True)
+    place = models.CharField(max_length=200, blank=True, null=True)
     profile_pic = ResizedImageField(size=[700, 700], quality=40, upload_to='gallery/', blank=True)
 
     def __str__(self):

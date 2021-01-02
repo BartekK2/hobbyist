@@ -9,7 +9,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .filters import PostFilter  # Filter posts by for example category etc.
 from django.core.paginator import Paginator  # Next and previous pages
-from geopy.geocoders import Nominatim  # Get city by address for example post card
 from .utils import *
 
 
@@ -48,24 +47,11 @@ def registration(request):
                 if is_field_unique(form, "email", User):
                     user, profile = form.save(), profile_form.save(commit=False)
                     # Saving address
-                    if profile_form.cleaned_data.get('place') != "":
-                        try:
-                            location_ = profile_form.cleaned_data.get('place')
-                            location = geolocator.geocode(location_, addressdetails=True, timeout=None)
-                            info = location.raw['address']
-                            print(info)
-                            # Poszukaj wśród danych zwróconych możliwe dane zwracające np miasto wieś itd
-                            possibilities = ['city', 'village', 'administrative']
-                            city = ""
-                            for x in possibilities:
-                                if x in info:
-                                    city = info[x]
-                            if city == "":
-                                raise ValueError('Nie ustalono')
-                            profile.place = city
-                        except:
-                            profile.place = ''
-                            messages.warning(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
+                    try:
+                        profile.place = geolocalize(profile_form)
+                    except:
+                        profile.place = ''
+                        messages.warning(request,"Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
                     profile.user = user
                     profile.save()
                     send_email(form, 'Hobbyist.pl Podziękowanie za rejestracje')
@@ -85,9 +71,14 @@ def edit_profile(request):
         if request.method == 'POST':
             profile_form = UserProfileForm(data=request.POST, files=request.FILES, instance=request.user.userprofile)
             if profile_form.is_valid():
-                profile_form.save()
+                profile = profile_form.save(commit=False)
+                try:
+                    profile.place = geolocalize(profile_form)
+                except:
+                    profile.place = ''
+                profile.save()
                 return redirect('Profil', request.user.id)
-        kontekst = {'profile_form': profile_form, 'obiekty':obiekty}
+        kontekst = {'profile_form': profile_form, 'obiekty': obiekty}
         return render(request, "editprofile.html", kontekst)
 
 
@@ -194,3 +185,5 @@ def index(request):
 
 def info(request):
     return render(request, "info.html")
+def oTworcach(request):
+    return render(request, "about.html")

@@ -1,5 +1,9 @@
 # [Hobbyist.pl](http://ec2-3-129-208-240.us-east-2.compute.amazonaws.com/)
-![Image](http://ec2-3-129-208-240.us-east-2.compute.amazonaws.com/static/logo.png)
+
+<p align="center">
+  <img src="http://ec2-3-129-208-240.us-east-2.compute.amazonaws.com/static/logo.png">
+</p>
+
 ### About
 Hobbyist.pl is a website that allows you to make new friends with people with the same interests.
 

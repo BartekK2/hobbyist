@@ -10,10 +10,14 @@
 					<ul class="social-media-list">
 							<form method="POST" action=""  enctype="multipart/form-data">
 								{% csrf_token %}
-								<li><i class="fab fa-facebook"></i>{{profile_form.fb}}</li>
-								<li><i class="fab fa-twitter"></i>{{profile_form.tt}}</li>
-								<li><i class="fab fa-instagram"></i>{{profile_form.ig}}</li>
-								<li><i class="fas fa-envelope"></i>{{profile_form.birthday}}</li>
+								<li><i class="fab fa-facebook"></i><p>facebook.com/</p></li>
+								{{profile_form.fb}}
+								<li><i class="fab fa-twitter"></i><p>twitter.com/</p></li>
+								{{profile_form.tt}}
+								<li><i class="fab fa-instagram"></i><p>instagram.com/</p></li>
+								{{profile_form.ig}}
+								<li><i class="fas fa-map-marked-alt"></i><p>Miejscowość:</p></li>
+								{{profile_form.place}}
 					</ul>
 				</div>
 				<div id="view">

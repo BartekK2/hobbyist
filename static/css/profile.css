@@ -45,7 +45,9 @@ transition:background-color 0.5s;}
 #info>ul>li{font-size:95%;text-align:center;margin-top:2vmin;font-weight:bold}
 #usun_konto{width:100%;margin-top:10vh;text-align:center;cursor:pointer;}
 #contact{grid-area:contact;height:100%;left:0;top:0;}
-#contact>ul>li{text-decoration:none;margin-top:1vh;position:relative;width:100%;transition: 0.2s}
+#contact>ul li{text-decoration:none;display:flex;margin-top:2%;position:relative;width:100%;transition: 0.2s}
+#contact>ul i{margin-right:1vmin;}
+#contact>ul input{width:100%;border:0;}
 #twitter, #mail, #instagram, #facebook {transition: color 0.4s;}
 #instagram:hover{color:#e4405f;}
 #twitter:hover{color:#1DA1F2;}
@@ -59,7 +61,7 @@ form>li>input {width:100%;border:0;}
 	cursor: pointer;
 }
 #edit_profile:hover {transform: rotate(180deg);}
-.social-media-list{padding-left:1vw;}
+.social-media-list{padding-left:0.5vw;}
 /*resizing*/
 @media only screen and (max-width: 540px) and (orientation: portrait) {
 	.container {
