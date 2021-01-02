@@ -29,14 +29,16 @@
 			</ul>
 		</div>
 		<div id="view">
+			<div id="picture_container">
 			<img id="profile_photo" 
 				{% if profile_user.userprofile.profile_pic %}src="{{profile_user.userprofile.profile_pic.url}}" 
 				{% else %} src = "{% static 'logo.png' %}" {% endif %}
-			alt="error"><span>{{ profile_user.first_name }} {{ profile_user.last_name }} ({{profile_user.username}})
+			alt="error"></img></div>
+			<span>{{ profile_user.first_name }} {{ profile_user.last_name }} ({{profile_user.username}})
 			{% if profile_user == request.user %}
 				<i id="edit_profile" onclick="location.href='{% url 'edit_profile' %}'" class="fas fa-cog"></i>
 			{% endif %}
-			</span></img>
+			</span>
 		</div>
 		<div id="info">
 			<ul>
