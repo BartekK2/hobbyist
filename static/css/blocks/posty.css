@@ -23,7 +23,7 @@
 	transition-property: transform, box-shadow;
 	transition:  0.5s;
 	cursor:pointer;
-	margin-top:2vmin;
+	margin-top:4vh;
 }
 
 .post:hover {
@@ -43,7 +43,7 @@
 
 #content {
 	margin:0;
-    padding: 2vw;
+    padding: 15%;
 	height:25vh;
 	overflow-y: auto;
 	font-size:80%;
@@ -57,7 +57,7 @@
 }
 #description *{display:inline-block;}
 #description {
-    padding:2vw;
+    padding:15%;
     align-items: center;
     color: #555555;
 	border-radius: 0.7vw;

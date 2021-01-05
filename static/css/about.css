@@ -20,11 +20,32 @@ main {
 }
 .inf_text{
     text-align:justify;
+    height:20vh;
     overflow-y:auto;
 }
 
 .inf_img{
     height:20vh;
+    min-width:20vh !important;
 }
 #title_inf{font-size:200%;text-align:center;margin-top:5vh;}
 #everyone{font-size:120%;text-align:center;margin-top:2vh;margin-left:10vw;margin-right:10vw;}
+@media only screen and (max-width: 540px) and (orientation: portrait) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "main";
+  }
+}
+@media only screen and (max-width: 880px){
+  .information {
+    display:block;
+    height:40vh;
+  }
+  .inf_img{
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+  }
+}
