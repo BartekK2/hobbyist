@@ -52,10 +52,9 @@ form *{color:var(--sec2);border:none;}
 form input, textarea, select{background:#303030;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
 form label{color:var(--sec1);}
 
-#bottom_inf{margin-top:4vmin;}
-#bottom_inf *{margin-top:2vmin;}
-#button_picture{background-color:#303030;border-radius:1vmin;cursor:pointer;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
-#dodaj {border:none;cursor:pointer;}
+#bottom_inf{margin-top:4vmin;display:flex;}
+#bottom_inf *{margin-top:2vmin;margin-left:1.5%;margin-right:1.5%;width:30%;border:none;text-align:center;cursor:pointer;}
+#button_picture{background-color:#303030;border-radius:1vmin;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
 #button_picture{background-color:#303030;padding:1.5vmin;border-radius:1vmin;cursor:pointer;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);}
 #dodaj {border:none;cursor:pointer;padding:0.5vmin 1.5vmin;}
 #close{position:fixed;cursor: pointer;right:1vw;top:1vh;color:var(--sec1);transition:1s;}
@@ -73,9 +72,9 @@ form label{color:var(--sec1);}
 	border-radius:1vw;
 	display:block;
 }
-#bottom_inf *{padding: 0.5vmin 1.5vmin; border-radius:1vmin;}
-#id_picture{display:none;padding:0;}
-#id_category{appearance: none;}
+#bottom_inf *{padding: 0;border-radius:1vmin;}
+#id_picture{display:none !important;padding:0;}
+#id_category{text-align-last:center;}
 #additional{font-size:2vmin;}
 textarea{resize:none;}
 
@@ -84,4 +83,6 @@ textarea{resize:none;}
 	#id_opis{width:70vw;}
 	#new_post .label{margin-top: 3vh;}
 	#new_post{width:70vw;}
+	#bottom_inf{margin-top:4vmin;display: block;}
+    #bottom_inf *{margin-top:2vmin;display:block;width:90%;margin-left:auto;margin-right:auto;}
 }

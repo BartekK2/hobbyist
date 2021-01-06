@@ -17,31 +17,36 @@
 			</div>
 			<p id="tytul">{{post.tytul}}</p>
 			<div id="information">
-				<a id="autor" href="{% url 'Profil' post.autor.id %}">{{post.autor}}</a><p id="data">{{post.data}}</p>
+				<i class="far fa-user"></i><a id="autor" href="{% url 'Profil' post.autor.id %}">{{post.autor}}</a><p id="data"><i class="far fa-clock"></i>{{post.data}}</p>
 			</div>
 			<p id="opis">{{post.opis}}</p>
 			<form method="POST" action="">
 				{% csrf_token %}
 				<div id="add_comment">
-					<label form=form.content>Dodaj swój komentarz: </label>	<input id="dodaj" type="submit" value="Dodaj"><br>
-					{{form.content}}<br>
-
+					<input id="dodaj" type="submit" value="Dodaj swój komentarz">
+					{{form.content}}
 				</div>
 			</form>
 			
 			<div id="comments">
 				{% for comment in comments %}
-					<div style="display:inline-block" class="comment">
-					<img id="profile_pic"
-					{% if comment.autor.userprofile.profile_pic %}
-						src={{comment.autor.userprofile.profile_pic.url}} 
-					{% else %}
-						src = "{% static 'logo.png' %}"
-					{% endif %}
-					alt="brak zdjęcia"></img>
-					
-					<span id="autor" onclick="location.href='{% url 'Profil' comment.autor.id %}'">{{comment.autor.username}}</span>{{comment.date}}<br>
-					<span id="content">"{{comment.content}}"</span></div><br>
+					<div class="comment">
+						<img id="profile_pic"
+							{% if comment.autor.userprofile.profile_pic %}
+								src={{comment.autor.userprofile.profile_pic.url}} 
+							{% else %}
+								src = "{% static 'logo.png' %}"
+							{% endif %}
+							alt="brak zdjęcia">
+						</img>
+						
+						<span id="content">
+							<i class="far fa-user"></i>
+							<span id="autor" onclick="location.href='{% url 'Profil' comment.autor.id %}'">{{comment.autor.username}}</span>
+							
+							<p id="date"><i class="far fa-clock"></i>{{comment.date}}</p><br>{{comment.content}}
+						</span>
+					</div>
 				{% endfor %}
 			</div>
 		  </div>
