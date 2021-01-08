@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="{% static 'css/log_reg.css' %}">
 {% endblock %}
 {% block body %}
+	<img id="zdj"src="/static/img/3dlogo.png"/>
 		<div class="login">
 			<form method="POST" action="" >
 				{% csrf_token %}
@@ -25,7 +26,7 @@
 					<label data-content="Powtórz hasło"form=form.password2>Powtórz hasło</label><br>
 					{{form.password2.errors}}
 					{{profile_form.place}}
-					<label data-content="Wpisz swój kod pocztowy lub najbliższe miasto*"form=profile_form.place>Wpisz swój kod pocztowy lub najbliższe miasto*</label><br>
+					<label data-content="Wpisz swój kod pocztowy lub najbliższe miasto*"form=profile_form.place>Wpisz swój kod pocztowy lub miejscowość*</label><br>
 					<p>Pola z * są nieobowiązkowe</p>
 			  	<p>Masz już konto? <a href="{% url 'Logowanie' %}"data-content="Zaloguj się tutaj!">Zaloguj się tutaj!</a></p>
 			  	<input type="submit" id="accept" name="Create User" value="Stwórz konto">

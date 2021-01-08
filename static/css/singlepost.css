@@ -14,10 +14,10 @@
 #information{margin:5vh 15vmin 0 15vmin;}
 #autor{color: var(--sec1);text-decoration:none;cursor:pointer;margin-right:1vmin;}
 #data{display:inline-block;margin-top:0;}
-#opis{margin:0 15vmin;word-break:break-word;padding-bottom:7vh;border-top:solid 0.5vmin var(--main);height:auto;overflow-y:auto;}
+#opis{margin:0 15vmin;word-break:break-word;padding-bottom:7vh;border-top:solid 0.25vmin var(--main);height:auto;overflow-y:auto;}
 
 /* comments */
-#comments{margin-bottom:2vh;height:auto;border-top:solid 0.25vw var(--main);padding:0 10vmin;}
+#comments{margin-bottom:2vh;height:auto;padding:0 10vmin;}
 .comment{margin-top:3vh;width:100%;display:flex;}
 #profile_pic{width:8vh;height:8vh;border-radius:50%;object-fit: cover;margin-right:1vmin;margin:auto;margin-right:2vmin;}
 #add_comment{width:70%;margin-left:50%;transform:translate(-50%,0)}

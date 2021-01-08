@@ -2,7 +2,7 @@
 #posts {
     margin: 0 6vw;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40vmin, auto));
+    grid-template-columns: repeat(auto-fill, minmax(40vh, auto));
     grid-auto-rows: auto;
     font-family: sans-serif;
     padding-top: 3vw;

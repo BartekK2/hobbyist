@@ -27,7 +27,7 @@
 							{% else %} src = "{% static 'logo.png' %}" {% endif %}alt="error">
 						</img>
 					</div>
-						<span>{{ request.user.first_name }} {{ request.user.last_name }} ({{request.user.username}})
+						<span>{{request.user.username}}
 							<button type="submit" class="save"><i type="submit" class="fas fa-save"></i></button>
 						</span>
 					<div id="pic_input">

@@ -36,13 +36,15 @@
 #logo_photo:hover{filter: drop-shadow(0 0vw 2vw #ffffff);}
 
 .nav {
+	display:flex;
+	align-items: center;
+	justify-content: center;
 	width: 90%;
 	height:6vh;
 	margin-top: 2vh;
 	background-color: var(--sec1);
 	color: var(--main);
 	font-size: 100%;
-	text-align: center;
 	cursor: pointer;
 	box-shadow: 1vmin 1vmin 2vmin #000000;
 	transition:0.2s;
