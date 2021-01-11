@@ -9,7 +9,7 @@
 		<form method="GET">
 			<button id="filters_but" type="submit">Filtruj</button>
 			{% for field in myFilter.form %}
-					<div style="display:inline-block;">{{field.label}}{{field}}</div>
+					<div style="display:inline-block;"><p>{{field.label}}</p>{{field}}</div>
 			{% endfor %}
 		</form>
 	</div>
@@ -18,5 +18,5 @@
 		{% include "post.html"%}
 	</main>
 	{% include "navbar.html"%}
-	<footer>strona utworzona w ramach projektu zwolnieni z teorii</footer>
+	<footer>strona stworzona w ramach projektu zwolnieni z teorii</footer>
 {% endblock %}

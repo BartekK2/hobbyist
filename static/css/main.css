@@ -1,5 +1,6 @@
 main {
   overflow-x:overlay;
+  overflow-y:auto;
   background: var(--sec2);
   grid-area: main;
 }
@@ -33,7 +34,8 @@ footer {
 	padding:1vh 5vw;
 	height:100%;
 }
-#filters * {display:block;padding:0.5vmin;appearance:none;margin-top:0.25vh;border:none;color:var(--sec1);margin-left:0.5vw;font-size:90%;}
+#filters p {display:block;}
+#filters * {padding:0.5vmin;appearance:none;margin-top:0.25vh;border:none;color:var(--sec1);margin-left:0.5vw;font-size:90%;}
 #filters input{color:var(--sec2);cursor:pointer;}
 #filters select {color:var(--sec2);cursor:pointer;}
 #filters select *{color:var(--sec2);}

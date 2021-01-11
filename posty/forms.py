@@ -44,3 +44,10 @@ class CreateCommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['content']
+
+class SendMessageForm(forms.Form):
+    title_email = forms.CharField(required=True, max_length=50,
+                                  widget=forms.TextInput(attrs={'placeholder': 'Tytuł wiadomości'}))
+    opis = forms.CharField(widget=forms.Textarea(
+        attrs={'cols': 80, 'rows': 20, 'required': True, 'placeholder': 'Zawartość wiadomości'}), max_length=600)
+

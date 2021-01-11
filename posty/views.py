@@ -40,7 +40,6 @@ def registration(request):
         return redirect('MeetMe!')
     else:
         form, profile_form = CreateUserForm(), UserProfileForm()
-        geolocator = Nominatim(user_agent='meet_my')
         if request.method == 'POST':
             form, profile_form = CreateUserForm(request.POST), UserProfileForm(request.POST)
             if form.is_valid() and profile_form.is_valid():
@@ -51,10 +50,10 @@ def registration(request):
                         profile.place = geolocalize(profile_form)
                     except:
                         profile.place = ''
-                        messages.warning(request,"Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
+                        messages.warning(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
                     profile.user = user
                     profile.save()
-                    send_email(form, 'Hobbyist.pl Podziękowanie za rejestracje')
+                    send_email(form)
                     username = form.cleaned_data.get('username')
                     messages.success(request, f'Konto użytkownika {username} zostało stworzone.')
                     return redirect('Logowanie')
@@ -187,3 +186,14 @@ def info(request):
     return render(request, "info.html")
 def oTworcach(request):
     return render(request, "about.html")
+def kontakt(request):
+    form = SendMessageForm()
+    if request.method == 'POST':
+        form = SendMessageForm(request.POST)
+        if form.is_valid():
+            send_email(form, email_type=2, username=request.user.username)
+            return redirect('MeetMe!')
+    kontekst={
+        'form':form,
+    }
+    return render(request, "kontakt.html", kontekst)

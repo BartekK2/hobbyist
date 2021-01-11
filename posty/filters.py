@@ -13,7 +13,7 @@ class PostFilter(django_filters.FilterSet):
     end_date = django_filters.DateFilter(field_name="data", lookup_expr='lte', label=('Do'),
         widget=DateInput())
     category = django_filters.ChoiceFilter(choices=choice_list, label=('Kategoria'))
-    city = django_filters.CharFilter(label=("Miasto: "))
+    city = django_filters.CharFilter(label=("Miasto"))
     class Meta:
         model = Post
         fields = []

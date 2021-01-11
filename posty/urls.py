@@ -15,6 +15,7 @@ urlpatterns = [
     path('post/<int:pk>/usun', views.delete_post, name='delete_post'),
     path('info/', views.info, name="Info"),
     path('tworcy/', views.oTworcach, name="o_tworcach"),
+    path('kontakt/', views.kontakt, name="kontakt"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

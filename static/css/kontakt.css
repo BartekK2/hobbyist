@@ -1,0 +1,66 @@
+.container {
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "sidebar main";
+}
+body{
+	background: var(--sec2);
+}
+
+main {
+  overflow-x:hidden;
+  grid-area: main;
+}
+main>div{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	display:flex;
+}
+#main_text{
+	width:80%;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:4vh;
+	margin-bottom:4vh;
+}
+.text{
+	text-align:center;
+	display:block;
+	margin-top:2vh;
+	margin-bottom:2vh;
+}
+form {width:60%;}
+#id_title_email{width:75%;display:block;margin-left:auto;margin-right:auto;margin-bottom:3vh;}
+#id_opis{width:75%;display:block;margin-left:auto;margin-right:auto;height:20vh;}
+#wyslij{display:block;margin-left:auto;margin-right:auto;width:30vh;height:5vh;margin-top:5vh;cursor:pointer;background: var(--sec1)}
+#fb{display:block;margin-left:auto;margin-right:auto;margin-bottom:10vh;}
+input, textarea{
+    border:none;
+    border-radius:2vh;
+    background: #bdbdbd;
+    padding:1vh !important;
+}
+input::placeholder, textarea::placeholder{
+    color:#808080;
+}
+@media only screen and (max-width: 540px) and (orientation: portrait) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "main";
+  }
+}
+@media only screen and (max-width: 880px) {
+	main>div{
+		display:block;
+	}
+	form {width:100%;margin-bottom:5vh !important;}
+	#fb{width:100%;max-width:340px;height:130px;}
+	main>div{
+        width:100%;
+    }
+}

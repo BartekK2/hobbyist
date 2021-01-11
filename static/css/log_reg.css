@@ -18,7 +18,7 @@ form{
 
 	max-height:50%;
 }
-#messages{word-break:break-all;}
+#messages{word-break:break;}
 .container * {
 	position:relative;
 }
@@ -38,9 +38,9 @@ form{
 	height: 4vh;
 	border-radius: 20vh;
 	margin-top: 4vh;
-	padding:0;
-	padding-top:0.3vh;
-	padding-bottom:0.3vh;
+	padding:0.5vh;
+	padding-left:0.5vw;
+	padding-right:0.5vw;
 }
 
 #accept {

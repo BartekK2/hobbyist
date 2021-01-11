@@ -31,7 +31,7 @@ transition:background-color 0.5s;}
 #picture_container{display:flex;align-items:center;justify-content:center;height:80%;}
 #profile_photo{position:relative;;width: 21vmin;border-radius:50%;border: solid 0.5vh #000000; height: 21vmin;
  object-fit: cover;filter: drop-shadow(0 0.7vw 0.7vw #000000);background-color:var(--main)}
-#profile div span{position:absolute;bottom:0;left:0;width:100%;text-align:center;font-size:125%;}
+#profile div span{position:absolute;user-select: text;bottom:0;left:0;width:100%;text-align:center;font-size:125%;}
 #profile{
   display: grid;background: var(--sec2);
 	box-shadow: 1vw 1vw 0.75vw #000000;border-bottom: solid 0.5vh #000000;

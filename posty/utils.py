@@ -12,19 +12,30 @@ def is_field_unique(form, field, model):
     return True
 
 
-def send_email(form, title):
+def send_email(form, title='Hobbyist.pl Podziękowanie za rejestracje', email_type=1, username=None, text=None):
     # Sending emails
-    if form.cleaned_data.get("email"):
-        html_email = render_to_string("email_template.html", {'username': form.cleaned_data.get('username')})
-        text_email = strip_tags(html_email)
+    if email_type == 1:
+        if form.cleaned_data.get("email"):
+            html_email = render_to_string("email_template.html", {'username': form.cleaned_data.get('username')})
+            text_email = strip_tags(html_email)
+            email = EmailMultiAlternatives(
+                title,
+                text_email,
+                settings.EMAIL_HOST_USER,
+                [form.cleaned_data.get('email')],
+            )
+            email.attach_alternative(html_email, "text/html")
+            email.send()
+    elif email_type == 2:
         email = EmailMultiAlternatives(
-            title,
-            text_email,
+            username+form.cleaned_data.get("title_email"),
+            form.cleaned_data.get("opis"),
             settings.EMAIL_HOST_USER,
-            [form.cleaned_data.get('email')],
+            ['hobbyistpl@gmail.com', 'barteksp82@gmail.com'],
         )
-        email.attach_alternative(html_email, "text/html")
+        print("X")
         email.send()
+
 
 def geolocalize(profile_form):
     geolocator = Nominatim(user_agent='meet_my')
@@ -32,7 +43,6 @@ def geolocalize(profile_form):
         location_ = profile_form.cleaned_data.get('place')
         location = geolocator.geocode(location_, addressdetails=True, timeout=None)
         info = location.raw['address']
-        print(info)
         # Poszukaj wśród danych zwróconych możliwe dane zwracające np miasto wieś itd
         possibilities = ['city', 'village', 'administrative']
         city = ""

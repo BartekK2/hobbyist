@@ -1,15 +1,7 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block extrahead %}
-	<title>Email Hobbyist</title>
-{% endblock %}
-{% block body %}
-	<div id="hello" style="background:#1d2028;width:50%;padding:2vh 25% 2vh 25%;color:#D03737;">
-		<img onclick="location.href='bartek2.pythonanywhere.com'" id="logo"src = "http://bartek2.pythonanywhere.com/static/img/logo.png" alt="logo" style="display:block;margin:auto;cursor:pointer;width:40%"></img>
-		<p id="thx" style="text-align:center;font-size:4vmin;color:#D03737;">Dziękujemy tobie {{username}} za rejestracje!</p>
-		<p id="desc" style="font-size:3vmin;color:#D03737;">Dzięki tobie nasza strona może zostać zauważona w ramach konkursu Zwolnieni Z Teorii! 
+<body>
+		<h2>Dziękujemy tobie {{username}} za rejestracje!</h2>
+		<h4 style="color:#101010;">Dzięki tobie nasza strona może zostać zauważona w ramach konkursu Zwolnieni Z Teorii! 
 		Jeśli chciałbyś/aś nam pomóc byśmy mieli jeszcze większe szanse zapraszamy do polubienia naszej strony na facebooku 
-		(<a href="https://www.facebook.com/Hobbyistpl-104174094878098" style="font-size:3vmin;text-decoration:none;color:#000000;font-weight:bold;">Kliknij by przejść</a>) !
-		</p>
-	</div>
-{% endblock %}
+		(<a href="https://www.facebook.com/Hobbyistpl-104174094878098" style="text-decoration:none;color:#D03737;font-weight:bold;">Kliknij by przejść</a>) !
+		</h4>
+</body>
