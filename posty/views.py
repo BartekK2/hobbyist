@@ -128,7 +128,7 @@ def delete_post(request, pk):
         if request.method == "POST":
             obj.delete()
             return redirect('MeetMe!')
-        kontekst = {"post":obj}
+        kontekst = {"post": obj}
         return render(request, "delete_post.html", kontekst)
     else:
         return redirect('MeetMe!')

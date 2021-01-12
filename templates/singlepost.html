@@ -17,7 +17,11 @@
 			</div>
 			<p id="tytul">{{post.tytul}}</p>
 			<div id="information">
-				<i class="far fa-user"></i><a id="autor" href="{% url 'Profil' post.autor.id %}">{{post.autor}}</a><p id="data"><i class="far fa-clock"></i>{{post.data}}</p>
+				<i class="far fa-user"></i><a id="autor" href="{% url 'Profil' post.autor.id %}">{{post.autor}}</a><p id="data"><i class="far fa-clock"></i>{{post.data}}
+				{% if post.autor.id == request.user.id %}
+					<a href="{% url 'delete_post' post.pk %}"><i id="delete"class="fas fa-trash-alt"></i></a>
+				{% endif %}
+				</p>
 			</div>
 			<p id="opis">{{post.opis}}</p>
 			<form method="POST" action="">
