@@ -82,7 +82,7 @@ form label{color:var(--sec1);}
 #id_picture{display:none !important;padding:0;}
 #id_category{text-align-last:center;}
 #additional{font-size:2vmin;}
-
+#loading{height:0; width:0;visibility:hidden;opacity:0%;transition: opacity 1s;}
 
 @media (max-width:540px) and (orientation: portrait) {
 	#id_tytul{width:69vw;}
