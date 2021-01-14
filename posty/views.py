@@ -24,11 +24,14 @@ def login_page(request, *args, **kwargs):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('MeetMe!')
+                if 'next' in request.GET:
+                    return redirect(request.GET.get('next'))
+                else:
+                    return redirect('MeetMe!')
             else:
                 messages.error(request, 'Login lub hasło nie poprawne')
-        return render(request, "login.html", kontekst)
 
+        return render(request, "login.html", kontekst)
 
 def logout_user(request):
     logout(request)
@@ -186,6 +189,7 @@ def info(request):
     return render(request, "info.html")
 def oTworcach(request):
     return render(request, "about.html")
+@login_required()
 def kontakt(request):
     form = SendMessageForm()
     if request.method == 'POST':

@@ -13,6 +13,18 @@
 				}
 			}
 	</script>
+	<script>
+		function showLoading() {
+			var x = document.getElementById("loading");
+			var form = document.getElementById("form");
+			if (form["opis"].value != "" && form["tytul"].value != "") {					
+				x.style.opacity = "100%";
+				x.style.visibility = "visible";
+				x.style.width = "fit-content";
+				x.style.height = "fit-content";
+			}
+		}
+	</script>
 <div id="new_post" style="visibility:hidden;">
 	<i id="close" onclick="myFunction()"class="fas fa-times-circle"></i>
 	<form method="POST" action="" enctype="multipart/form-data" id="form">
@@ -28,18 +40,6 @@
 			<input id="dodaj" type="submit" value="Dodaj post" onclick="showLoading()">
 			
 			<img id="loading" alt="loading icon" src = "{% static 'loading.svg' %}"/>
-			<script>
-				function showLoading() {
-					var x = document.getElementById("loading");
-					var form = document.getElementById("form");
-					if (form["opis"].value != "" && form["tytul"].value != "") {					
-						x.style.opacity = "100%";
-						x.style.visibility = "visible";
-						x.style.width = "fit-content";
-						x.style.height = "fit-content";
-					}
-				}
-			</script>
 		</div>
 	</form>
 </div>
