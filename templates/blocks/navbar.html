@@ -1,12 +1,12 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/blocks/navbar.css' %}">
-<button id="side-menu-trigger">Menu</button>
+<button id="side-menu-trigger"><i aria-hidden="true" class="fas fa-chevron-circle-down"></i></button>
 <div id="navbar">
 		<img id="logo_photo" alt="logo"src="{% static 'logo.png' %}" onclick="location.href='{% url 'MeetMe!' %}'"/>
 		{% if request.user.id %}
 			<p id="hello">Witaj <span id="username_id">{{request.user}}</span>!</p>
 		{% else %}
-			<p id="hello">Witaj ! Stwórz konto lub się zaloguj żeby zobaczyć reszte treści.</p>
+			<p id="hello">Witaj! Stwórz konto lub zaloguj się żeby zobaczyć resztę treści.</p>
 		{% endif %}
 		<ul id="menu">
                     <li class="nav" onclick="location.href='{% url 'MeetMe!' %}'"><i class="fas fa-comment-alt"></i>Posty</a></li>
@@ -19,8 +19,8 @@
 					{% if request.user.id %}	
 						<li class="nav" onclick="location.href='{% url 'Wylogowanie' %}'"><i class="fas fa-sign-out-alt"></i>Wyloguj</li>
 					{% else %}
-						<li class="nav" onclick="location.href='{% url 'Logowanie' %}'"><i class="fas fa-sign-in-alt"></i>Zaloguj sie!</li>
-						<li class="nav" onclick="location.href='{% url 'Rejestracja' %}'"><i class="fas fa-user-circle"></i>Zarejestruj sie!</li>
+						<li class="nav" onclick="location.href='{% url 'Logowanie' %}'"><i class="fas fa-sign-in-alt"></i>Zaloguj się!</li>
+						<li class="nav" onclick="location.href='{% url 'Rejestracja' %}'"><i class="fas fa-user-circle"></i>Zarejestruj się!</li>
 					{% endif %}
 		</ul>
 </div>

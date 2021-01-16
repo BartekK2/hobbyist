@@ -84,23 +84,21 @@
 	    display:inline-block;
 		top: 50vh;
 		left: 3vw;
-		width: 15vmin;
-		height: 15vmin;
+		width:10vmin;
+		height:10vmin;
 		z-index: 3;
-		background-color: var(--main);
-		color: var(--sec1);
+		color: var(--main);
 		opacity: 100;
-		border: none;
-		border-radius: 50%;
-		font-size: 4vmin;
-		text-align:center;
-		filter: drop-shadow(2vmin 1vmin 2vmin #000000);
-		transition: opacity 1s;
+		border:none;
+		background:none;
+		transform:rotate(270deg);
+		transition: left 1s ease-in-out;
 	}
 	#side-menu-trigger:focus+#navbar {
 		left: 0px;
 	}
+	#side-menu-trigger>i{font-size: 11vmin;}
 	#side-menu-trigger:focus {
-		opacity: 0;
+		left: 100vw;
 	}
 }
