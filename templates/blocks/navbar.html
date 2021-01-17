@@ -1,6 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/blocks/navbar.css' %}">
-<button id="side-menu-trigger"><i aria-hidden="true" class="fas fa-chevron-circle-down"></i></button>
+<button id="side-menu-trigger"><i class="fas fa-chevron-circle-right"></i></button>
 <div id="navbar">
 		<img id="logo_photo" alt="logo"src="{% static 'logo.png' %}" onclick="location.href='{% url 'MeetMe!' %}'"/>
 		{% if request.user.id %}

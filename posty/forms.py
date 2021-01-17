@@ -11,9 +11,6 @@ for item in choices:
     choice_list.append(item)
 choice_list.sort()
 
-# Błąd podczas tworzenia migracji ale działa poprawnie dopuki nie rozwiazesz problemu uzywaj
-# python manage.py makemigrations posty python manege.py migrate :)
-
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField(required=True, max_length=100)
     username = forms.CharField(required=True, min_length=4, max_length=16)
@@ -44,6 +41,9 @@ class CreateCommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['content']
+        widgets = {
+            'content': Textarea(attrs={'autofocus': True, 'required': True}),
+        }
 
 class SendMessageForm(forms.Form):
     title_email = forms.CharField(required=True, max_length=50,

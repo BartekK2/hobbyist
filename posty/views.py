@@ -69,7 +69,8 @@ def registration(request):
 @login_required
 def edit_profile(request):
         profile_form = UserProfileForm(instance=request.user.userprofile)
-        obiekty = Post.objects.filter(autor=request.user).order_by('-data')
+        obiekty = Post.objects.filter(autor=request.user).order_by('-id')
+        post_numbers = Post.objects.filter(autor=request.user).count()
         if request.method == 'POST':
             profile_form = UserProfileForm(data=request.POST, files=request.FILES, instance=request.user.userprofile)
             if profile_form.is_valid():
@@ -80,6 +81,9 @@ def edit_profile(request):
                     profile.place = ''
                 profile.save()
                 return redirect('Profil', request.user.id)
+        paginator = Paginator(obiekty, 12)
+        strona = request.GET.get('strona')
+        obiekty = paginator.get_page(strona)
         kontekst = {'profile_form': profile_form, 'obiekty': obiekty}
         return render(request, "editprofile.html", kontekst)
 

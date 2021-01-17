@@ -14,6 +14,7 @@ body *::selection {
   color: var(--main);
   background: var(--sec1);
 }
+main{overflow-x:hidden;}
 ul {
   list-style: none;
 }

@@ -33,7 +33,6 @@ def send_email(form, title='Hobbyist.pl Podziękowanie za rejestracje', email_ty
             settings.EMAIL_HOST_USER,
             ['hobbyistpl@gmail.com', 'barteksp82@gmail.com'],
         )
-        print("X")
         email.send()
 
 

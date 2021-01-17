@@ -90,5 +90,6 @@ form label{color:var(--sec1);}
 	#new_post .label{margin-top: 3vh;}
 	#new_post{width:70vw;}
 	#bottom_inf{margin-top:4vmin;display: block;}
-    #bottom_inf *{margin-top:2vmin;display:block;width:90%;margin-left:auto;margin-right:auto;}
+	#button_picture, #id_picture, #id_category, #dodaj{display:block;}
+    #bottom_inf *{margin-top:2vmin;width:90%;margin-left:auto;margin-right:auto;}
 }
