@@ -22,7 +22,7 @@ form{
 .container * {
 	position:relative;
 }
-
+#anim_logo{display:block;margin:auto;}
 .login {
 	font-size:100%;
 	max-width:100vh;
@@ -37,7 +37,7 @@ form{
 	width: 100%;
 	height: 4vh;
 	border-radius: 20vh;
-	margin-top: 4vh;
+	margin-top: 3.5vh;
 	padding:0.5vh;
 	padding-left:0.5vw;
 	padding-right:0.5vw;
@@ -106,7 +106,7 @@ input:invalid+label::before {
 	max-height:50vh;
 	margin:auto;
 }
-
+#id_username{margin-top:1vh;}
 
 /*resizing*/
 @media only screen and (max-width: 720px){

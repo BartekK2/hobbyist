@@ -9,7 +9,7 @@
 		<div class="login">
 			<form method="POST" action="" >
 				{% csrf_token %}
-					
+					<img id="anim_logo"src="{% static 'img/hobbyist_anim.svg' %}"/>
 					{{form.username}}
 					<label data-content="Nazwa Uzytkownika" form=form.username>Nazwa Uzytkownika</label><br>
 					{{form.username.errors}}

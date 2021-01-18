@@ -10,6 +10,8 @@
 		<div class="login">
 			<form method="POST" action="">
 				{% csrf_token %}
+				
+				<img id="anim_logo"src="{% static 'img/hobbyist_anim.svg' %}"/>
 				<input type="name" id="username" name="username"><br>
 				<label for="name">Nazwa użytkownika</label><br>
 				<input type="password" id="password" name="password"><br>
