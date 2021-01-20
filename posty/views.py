@@ -119,6 +119,8 @@ def delete_user(request, pk):
     obj = get_object_or_404(User, id=pk)
     if request.user == obj:
         if request.method == "POST":
+            if obj.userprofile.profile_pic:
+                obj.userprofile.profile_pic.delete()
             obj.delete()
             return redirect('Logowanie')
         kontekst = {"user": obj}

@@ -17,9 +17,7 @@
 				<input type="password" id="password" name="password"><br>
 				<label for="password">Hasło</label><br>
 				{% for message in messages %}
-					{% if message.tags == "success" %}
 						<p id="messages">{{ message | safe }}</p>
-					{% endif %}
 				{% endfor %}
 				{{form.errors}}
 				<p>Nie masz jeszcze konta? <a href="{% url 'Rejestracja' %}"data-content="Zarejestruj się tutaj!">Zarejestruj się tutaj!</a></p>

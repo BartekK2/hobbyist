@@ -23,6 +23,12 @@ class Post(models.Model):
     picture = ResizedImageField(size=[900, 700], quality=40,  upload_to='gallery/', blank=True)
     category = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=100, blank=True)
+    
+    # with object delete images from media too
+    def delete(self, *args, **kwargs):
+        if self.picture:
+            self.picture.delete()
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return str(self.autor) + ' - Post Id: ' + str(self.id)
@@ -36,7 +42,9 @@ class UserProfile(models.Model):
     tt = models.CharField(max_length=100, blank=True)
     place = models.CharField(max_length=200, blank=True, null=True)
     profile_pic = ResizedImageField(size=[700, 700], quality=40, upload_to='gallery/', blank=True)
-
+    
+    # idk how to override user deleting so everything is in views delete_user view
+        
     def __str__(self):
         return self.user.username + " UP"
 
