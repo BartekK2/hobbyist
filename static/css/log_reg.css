@@ -22,7 +22,8 @@ form{
 .container * {
 	position:relative;
 }
-#anim_logo{display:block;margin:auto;}
+#anim_logo{display:block;margin:auto;width:45%;}
+
 .login {
 	font-size:100%;
 	max-width:100vh;
@@ -103,12 +104,13 @@ input:invalid+label::before {
 }
 
 #zdj{
-	max-height:50vh;
+	height:50vh;
 	margin:auto;
 }
 #id_username{margin-top:1vh;}
 
 /*resizing*/
-@media only screen and (max-width: 720px){
+@media only screen and (max-width: 720px) and (orientation:portrait){
 	#zdj{display:none;}
+	
 }

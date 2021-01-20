@@ -50,8 +50,11 @@
 }
 #description *{display:inline-block;}
 #description {
-    padding:2vw;
+    padding:10%;
+    padding-top:5%;
+    padding-bottom:5%;
     align-items: center;
+	text-align: center;
     color: #555555;
 	border-radius: 0.7vw;
 }
