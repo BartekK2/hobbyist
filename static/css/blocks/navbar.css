@@ -1,18 +1,30 @@
 #navbar {
+	height:100vh;
 	grid-area: sidebar;
 	z-index: 2;
 	background-color: var(--main);
 	box-shadow: 0.1vw 0 1.7vw #000000;
 	transition: width 1s;
-	height:100vh;
 }
 
+#logo_photo {
+	display:block;
+	width: 15vmin;
+	height: 15vmin;
+	margin: auto;
+	margin-top: 15vh;
+	cursor:pointer;
+	animation: zmiana-strony-logo 0.9s both;
+	
+}
+#logo_photo:hover{filter:invert(33%) sepia(54%) saturate(2738%) hue-rotate(338deg)  brightness(83%) contrast(100%) drop-shadow(0.4vw 0.4vw 0.1vw #000000);}
+
 #hello {
-	text-align:center;
-	font-size:125%;
 	width: auto;
 	height:auto;
 	margin-top: 6vh;
+	text-align:center;
+	font-size:125%;
 	color: var(--sec2);
 }
 
@@ -23,24 +35,13 @@
 	word-break:break-all;
 }
 
-#logo_photo {
-	width: 15vmin;
-	height: 15vmin;
-	display:block;
-	margin: auto;
-	cursor:pointer;
-	margin-top: 15vh;
-	animation: zmiana-strony-logo 0.9s both;
-	
-}
-#logo_photo:hover{filter:invert(33%) sepia(54%) saturate(2738%) hue-rotate(338deg)  brightness(83%) contrast(100%) drop-shadow(0.4vw 0.4vw 0.1vw #000000);}
 .nav {
 	display:flex;
-	align-items: center;
-	justify-content: center;
 	width: 90%;
 	height:6vh;
 	margin-top: 2vh;
+	align-items: center;
+	justify-content: center;
 	background-color: var(--sec1);
 	color: var(--main);
 	font-size: 100%;
@@ -64,7 +65,7 @@
 	opacity: 0;
 	position: fixed;
 }
-
+/* animacja loga */
 @keyframes  zmiana-strony-logo{
   0% {
             transform: scale3d(1, 1, 1);
@@ -89,13 +90,13 @@
   }
 }
 
-
-@media screen and (max-width:540px) and (orientation: portrait){
+/* telefony */
+@media screen and (max-width:540px){
 	#navbar {
 		position:fixed;
+		width: 100vw;
 		left: -120vw;
 		transition: left 1s ease-in-out;
-		width: 100vw;
 	}
 	#logo_photo {
 		width: 25vw;
@@ -104,6 +105,7 @@
 	.nav {
 		height: 6vh;
 	}
+	/* przycisk */
 	#side-menu-trigger {
 	    display:inline-block;
 		top: 50vh;
@@ -117,11 +119,7 @@
 		background:none;
 		transition: left 1s ease-in-out;
 	}
-	#side-menu-trigger:focus+#navbar {
-		left: 0px;
-	}
+	#side-menu-trigger:focus+#navbar {left: 0px;}
 	#side-menu-trigger>i{font-size: 11vmin;}
-	#side-menu-trigger:focus {
-		left: 100vw;
-	}
+	#side-menu-trigger:focus {left: 100vw;}
 }

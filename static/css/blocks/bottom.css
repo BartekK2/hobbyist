@@ -1,5 +1,6 @@
 #next_page, #prev_page{
 	display:inline-block;
+	position: relative;
 	margin:3vh 0;
 	padding: 1vmin 1vmax 1vmin 1vmax;
 	background-color:var(--sec1);
@@ -7,7 +8,6 @@
 	border-radius:10vmin;
 	cursor:pointer;
 	transition: 0.2s;
-	position: relative;
 	transform-style: preserve-3d;
 	border:none;
 	line-height: 1.5;

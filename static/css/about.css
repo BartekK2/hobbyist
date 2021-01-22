@@ -5,22 +5,22 @@
     "sidebar main";
 }
 main {
+  grid-area: main;
   overflow-x:hidden;
   background: var(--sec2);
-  grid-area: main;
 }
 
 .information {
     display:flex;
-    margin-bottom:5vh;
+    height:20vh;
+	margin-bottom:5vh;
     margin: 10vh 10vw 10vh 10vw;
     align:center;
-    height:20vh;
     justify-content:center;
 }
 .inf_text{
+	height:20vh;
     text-align:justify;
-    height:20vh;
     overflow-y:auto;
 }
 
@@ -28,8 +28,14 @@ main {
     height:20vh;
     min-width:20vh !important;
 }
-#title_inf{font-size:200%;text-align:center;margin-top:5vh;}
-#everyone{font-size:120%;text-align:center;margin-top:2vh;margin-left:10vw;margin-right:10vw;}
+#title_inf{margin-top:5vh;font-size:200%;text-align:center;}
+#everyone{
+	margin-top:2vh;
+	margin-left:10vw;
+	margin-right:10vw;
+	font-size:120%;
+	text-align:center;
+}
 @media only screen and (max-width: 540px) and (orientation: portrait) {
   .container {
     grid-template-columns: 1fr;
