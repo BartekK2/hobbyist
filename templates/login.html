@@ -5,8 +5,7 @@
 	<link rel="stylesheet" href="{% static 'css/log_reg.css' %}">
 {% endblock %}
 {% block body %}
-
-			<img id="zdj"src="/static/img/3dlogo.png"/>
+		<img id="zdj"src="/static/img/3dlogo.png"/>
 		<div class="login">
 			<form method="POST" action="">
 				{% csrf_token %}
@@ -17,7 +16,7 @@
 				<input type="password" id="password" name="password"><br>
 				<label for="password">Hasło</label><br>
 				{% for message in messages %}
-						<p id="messages">{{ message | safe }}</p>
+						<li id="messages">{{ message | safe }}</li>
 				{% endfor %}
 				{{form.errors}}
 				<p>Nie masz jeszcze konta? <a href="{% url 'Rejestracja' %}"data-content="Zarejestruj się tutaj!">Zarejestruj się tutaj!</a></p>

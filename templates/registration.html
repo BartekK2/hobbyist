@@ -11,23 +11,22 @@
 				{% csrf_token %}
 					<img id="anim_logo"src="{% static 'img/hobbyist_anim.svg' %}"/>
 					{{form.username}}
-					<label data-content="Nazwa Uzytkownika" form=form.username>Nazwa Uzytkownika</label><br>
+					<label data-content="Nazwa Uzytkownika" form=form.username>Nazwa Uzytkownika*</label><br>
 					{{form.username.errors}}
 					{{form.email}}
-					<label data-content="Email"form=form.email>Email*</label><br>
+					<label data-content="Email"form=form.email>Email</label><br>
 					{{form.email.errors}}
 					{% for message in messages %}
 						<p id="messages">{{ message | safe }}</p>
 					{% endfor %}
 					{{form.password1}}
-					<label data-content="Hasło"form=form.password1>Hasło</label><br>
+					<label data-content="Hasło"form=form.password1>Hasło*</label><br>
 					{{form.password1.errors}}
 					{{form.password2}}
-					<label data-content="Powtórz hasło"form=form.password2>Powtórz hasło</label><br>
+					<label data-content="Powtórz hasło"form=form.password2>Powtórz hasło*</label><br>
 					{{form.password2.errors}}
 					{{profile_form.place}}
-					<label data-content="Wpisz swój kod pocztowy lub najbliższe miasto*"form=profile_form.place>Wpisz swój kod pocztowy lub miejscowość*</label><br>
-					<p>Pola z * są nieobowiązkowe</p>
+					<label data-content="Wpisz swój kod pocztowy lub najbliższe miasto"form=profile_form.place>Wpisz swój kod pocztowy lub miejscowość</label><br>
 			  	<p>Masz już konto? <a href="{% url 'Logowanie' %}"data-content="Zaloguj się tutaj!">Zaloguj się tutaj!</a></p>
 			  	<input type="submit" id="accept" name="Create User" value="Stwórz konto">
 				<p>Korzystając z naszej strony jednocześnie wyrażasz zgode na regulamin użytkowania.

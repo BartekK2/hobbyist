@@ -65,11 +65,10 @@ input::placeholder, textarea::placeholder{
 }
 #wyslij{
 	display:block;
-	width:30vh;
-	height:5vh;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:5vh;
+	padding:1vmin;
 	cursor:pointer;
 	background: var(--sec1);
 }
@@ -98,20 +97,17 @@ input::placeholder, textarea::placeholder{
 	#id_title_email{margin-bottom:18px;}
 	#id_opis{height:120px;}
 	#wyslij{
-		width:130px;
-		height:35px;
+		padding:3px;
 		margin-top:35px;
 	}
 	#fb{margin-bottom:60px;}
 }
 /* ukrywanie 3d logo */
 @media only screen and (max-width: 880px) {
-	main>div{
-		display:block;
-	}
 	form {width:100%;margin-bottom:5vh !important;}
 	#fb{width:100%;max-width:340px;height:130px;}
 	main>div{
+		display:block;
         width:100%;
     }
 }

@@ -55,6 +55,7 @@
 	user-select: text;
 }
 #data{display:inline-block;margin-top:0;}
+#information i{margin-right: 1vmin;}
 #delete{
 	margin-right:1vh;
 	color:var(--main);
@@ -79,6 +80,7 @@
 
 /* komentarze */
 #comments{height:auto;margin-bottom:2vh;padding:0 10vmin;}
+#comments i {margin-right:1vmin;}
 .comment{display:flex;width:100%;margin-top:3vh;}
 #profile_pic{
 	width:8vh;
@@ -87,12 +89,19 @@
 	margin-right:2vmin;
 	border-radius:50%;
 	object-fit: cover;
+	cursor:pointer;
 }
 #content{
 	width:100%;
-	max-height:20vh;
-	word-break: break;
+	padding:1vmin;
 	background:#fff;
+	overflow:hidden;
+}
+#tekst{
+	display:inline-block;
+	width:inherit;
+	max-height:20vh;
+	word-break: break-word;
 	user-select: text;
 	overflow-y:auto;
 	overflow-x:hidden;
@@ -121,9 +130,11 @@
 	#information{margin:20px 15vmin 0 15vmin;}
 	#delete{margin-right:6px;}
 	#dodaj{padding:3px 3px;}
-	#comments{margin-bottom:12px;}
+	#comments{margin-bottom:12px;padding:0 5vmin;}
 	.comment{margin-top:18px;}
 	#profile_pic{width:48px;height:48px;}
-	#content{max-height:120px;}
-	
+	#tekst{max-height:120px;}
+	#content{
+		padding:5px;
+	}
 }

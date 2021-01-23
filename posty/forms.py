@@ -12,7 +12,7 @@ for item in choices:
 choice_list.sort()
 
 class CreateUserForm(UserCreationForm):
-    email = forms.EmailField(required=True, max_length=100)
+    email = forms.EmailField(required=False, max_length=100)
     username = forms.CharField(required=True, min_length=4, max_length=16)
     class Meta:
         model = User

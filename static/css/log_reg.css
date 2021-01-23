@@ -17,7 +17,7 @@ form{
     background-color:#0000004f;
     box-shadow:3vmin 3vmin 5px 0px rgba(0,0,0,0.75);
 }
-#messages{word-break:break;}
+#messages{word-break:break;text-align:center;}
 .container * {
 	position:relative;
 }

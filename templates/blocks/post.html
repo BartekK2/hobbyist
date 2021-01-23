@@ -13,7 +13,7 @@
 							</img>
 						</div>
 						<p id="title">{{Post.tytul}}</p>
-						<p id="content" ><a id="category" href="/?category={{Post.category}}">#{{Post.category}}</a><br><br>{{Post.opis}}</p>
+						<p id="content" ><a id="category" href="/?kategoria={{Post.category}}">#{{Post.category}}</a><br><br>{{Post.opis}}</p>
 						<div id="description">
 							<a href="{% url 'Profil' Post.autor.id %}"><p id="author">{{Post.autor}}</p></a><p id="date">{{Post.data|date:"d-m-Y"}}</p>
 							{% if Post.autor.id == request.user.id %}

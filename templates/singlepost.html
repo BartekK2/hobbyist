@@ -41,6 +41,7 @@
 							{% else %}
 								src = "{% static 'logo.png' %}"
 							{% endif %}
+							onclick="location.href='{% url 'Profil' comment.autor.id %}'"
 							alt="brak zdjęcia">
 						</img>
 						
@@ -48,7 +49,12 @@
 							<i class="far fa-user"></i>
 							<span id="autor" onclick="location.href='{% url 'Profil' comment.autor.id %}'">{{comment.autor.username}}</span>
 							
-							<p id="date"><i class="far fa-clock"></i>{{comment.date}}</p><br>{{comment.content}}
+							<p id="date"><i class="far fa-clock"></i>{{comment.date}}</p>
+							{% if comment.autor.id == request.user.id %}
+								<a id="delete" href="{% url 'delete_comment' comment.pk post.pk %}">Usuń komentarz <i class="fas fa-trash-alt"></i></a>
+							{% endif %}
+							<br>
+							<span id="tekst">{{comment.content}}</span>
 						</span>
 					</div>
 				{% endfor %}

@@ -16,15 +16,14 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    tytul = models.CharField(max_length=60)
+    tytul = models.CharField(max_length=60, blank=True)
     opis = models.CharField(max_length=800, blank=True, null=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE, default='')
     data = models.DateTimeField(auto_now_add=True)
     picture = ResizedImageField(size=[900, 700], quality=40,  upload_to='gallery/', blank=True)
     category = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=100, blank=True)
-    
-    # with object delete images from media too
+
     def delete(self, *args, **kwargs):
         if self.picture:
             self.picture.delete()
@@ -42,9 +41,7 @@ class UserProfile(models.Model):
     tt = models.CharField(max_length=100, blank=True)
     place = models.CharField(max_length=200, blank=True, null=True)
     profile_pic = ResizedImageField(size=[700, 700], quality=40, upload_to='gallery/', blank=True)
-    
-    # idk how to override user deleting so everything is in views delete_user view
-        
+
     def __str__(self):
         return self.user.username + " UP"
 
@@ -52,7 +49,7 @@ class Comment(models.Model):
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
-    content = models.TextField(max_length=255, blank=False, default=None)
+    content = models.TextField(max_length=700, blank=False, default=None)
 
     def __str__(self):
         return self.autor.username + " - " + self.post.tytul

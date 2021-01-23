@@ -101,7 +101,7 @@ def profile(request, pk):
                 post = form.save(commit=False)
                 post.autor = request.user
                 post.save()
-
+                return redirect('Profil', pk=pk)
     paginator = Paginator(obiekty, 12)
     strona = request.GET.get('strona')
     obiekty = paginator.get_page(strona)
@@ -155,6 +155,7 @@ def show_post(request, pk):
             comment.autor = request.user
             comment.post = post
             comment.save()
+            return redirect('S_post', pk=pk)
 
     kontekst={
         'post': post,
@@ -163,6 +164,12 @@ def show_post(request, pk):
     }
     return render(request, "singlepost.html", kontekst)
 
+# ...COMMENTS...
+@login_required()
+def delete_comment(request, pk, postpk):
+    comment = get_object_or_404(Comment, id=pk)
+    comment.delete()
+    return redirect('S_post', pk=postpk)
 
 # ...OTHER...
 @login_required()
@@ -175,6 +182,7 @@ def index(request):
             post.autor = request.user
             post.city = request.user.userprofile.place
             post.save()
+            return redirect('MeetMe!')
     if 'city' in request.GET:
         # nowy sącz -> Nowy Sącz, kraków -> Kraków
         request.GET = request.GET.copy()  # odpakuj żeby dało się zmienić wartość

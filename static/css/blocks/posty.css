@@ -82,3 +82,11 @@ a{text-decoration:none; }
 @media (max-width:720px) {
 	#posts{grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));}
 }
+@media (max-width:540px) {
+	/* vh --> px 1vh ~ 6px, 1vw ~ 3px*/
+	#posts {margin-bottom:12px;padding-top: 9px;}
+	.post {margin-top:24px;border-radius: 12px;}
+	#photo >img {height: 120px;border-radius: 12px 12px 0 0;}
+	#title{height:48px;}
+	#content {height:150px;}
+}
