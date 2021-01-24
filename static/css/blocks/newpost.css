@@ -1,6 +1,6 @@
 /* przycisk dodaj post */
 #addnew {
-    display: inline-block;
+    display: block;
 	position: relative;
 	width:27%;
 	margin-top:2vh;

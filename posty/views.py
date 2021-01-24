@@ -49,11 +49,12 @@ def registration(request):
                 if is_field_unique(form, "email", User):
                     user, profile = form.save(), profile_form.save(commit=False)
                     # Saving address
-                    try:
-                        profile.place = geolocalize(profile_form)
-                    except:
-                        profile.place = ''
-                        messages.warning(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
+                    if profile_form.cleaned_data.get('place'):
+                        try:
+                            profile.place = geolocalize(profile_form)
+                        except:
+                            profile.place = ''
+                            messages.warning(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
                     profile.user = user
                     profile.save()
                     send_email(form)

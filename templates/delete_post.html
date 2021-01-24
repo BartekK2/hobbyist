@@ -22,7 +22,7 @@
 						src = "{% static 'zzt.png' %}" {
 					{% endif %}alt="Brak zdjęcia"></img></div>
 					<p id="title">{{post.tytul}}</p>
-					<p id="content" ><a id="category" href="/?category={{post.category}}">#{{post.category}}</a><br><br>{{post.opis}}</p>
+					<p id="content" ><a id="category" href="/?kategoria={{post.category}}">#{{post.category}}</a><br><br>{{post.opis}}</p>
 					<div id="description">
 						<a href="{% url 'Profil' post.autor.id %}"><p id="author">{{post.autor}}</p></a><p id="date">{{post.data|date:"d-m-Y"}}</p>
 					</div>

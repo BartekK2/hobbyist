@@ -5,6 +5,7 @@
 	background-color: var(--main);
 	box-shadow: 0.1vw 0 1.7vw #000000;
 	transition: width 1s;
+	overflow-y:auto;
 }
 
 #logo_photo {
@@ -34,6 +35,8 @@
 	text-transform: capitalize;
 	word-break:break-all;
 }
+
+#menu{margin-bottom:7vmin;}
 
 .nav {
 	display:flex;
