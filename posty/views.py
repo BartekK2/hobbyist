@@ -46,23 +46,20 @@ def registration(request):
         if request.method == 'POST':
             form, profile_form = CreateUserForm(request.POST), UserProfileForm(request.POST)
             if form.is_valid() and profile_form.is_valid():
-                if is_field_unique(form, "email", User):
-                    user, profile = form.save(), profile_form.save(commit=False)
-                    # Saving address
-                    if profile_form.cleaned_data.get('place'):
-                        try:
-                            profile.place = geolocalize(profile_form)
-                        except:
-                            profile.place = ''
-                            messages.warning(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
-                    profile.user = user
-                    profile.save()
-                    send_email(form)
-                    username = form.cleaned_data.get('username')
-                    messages.success(request, f'Konto użytkownika {username} zostało stworzone.')
-                    return redirect('Logowanie')
-                else:
-                    messages.error(request, 'Istnieje już użytkownik z takim Emailem prosze wybierz inny lub zaloguj sie na swoje konto')
+                user, profile = form.save(), profile_form.save(commit=False)
+                 # Saving address
+                if profile_form.cleaned_data.get('place'):
+                    try:
+                        profile.place = geolocalize(profile_form)
+                    except:
+                        profile.place = ''
+                        messages.warning(request, "Nie udało się ustalić miejsca skąd pochodzisz być może jest to chwilowy błąd, spróbuj później to zmienić w ustawieniach profilu")
+                profile.user = user
+                profile.save()
+                send_email(form)
+                username = form.cleaned_data.get('username')
+                messages.success(request, f'Konto użytkownika {username} zostało stworzone.')
+                return redirect('Logowanie')
         kontekst = {'form': form, 'profile_form': profile_form}
         return render(request, "registration.html", kontekst)
 
@@ -184,10 +181,10 @@ def index(request):
             post.city = request.user.userprofile.place
             post.save()
             return redirect('MeetMe!')
-    if 'city' in request.GET:
+    if 'miejscowosc' in request.GET:
         # nowy sącz -> Nowy Sącz, kraków -> Kraków
         request.GET = request.GET.copy()  # odpakuj żeby dało się zmienić wartość
-        request.GET['city'] = request.GET['city'].title()  # Zmień wartość na tą samą ale z dużych liter
+        request.GET['miejscowosc'] = request.GET['miejscowosc'].title()  # Zmień wartość na tą samą ale z dużych liter
     myFilter = PostFilter(request.GET, queryset=Post.objects.filter())
     obiekty = myFilter.qs.order_by('-id')
     paginator = Paginator(obiekty, 12)

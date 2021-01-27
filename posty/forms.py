@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 from .models import Post, UserProfile, Category, Comment
+from .utils import is_email_unique
 
 choices = Category.objects.all().values_list('name', 'name')
 choice_list = []
@@ -12,7 +13,7 @@ for item in choices:
 choice_list.sort()
 
 class CreateUserForm(UserCreationForm):
-    email = forms.EmailField(required=False, max_length=100)
+    email = forms.EmailField(required=False, max_length=100, validators=[is_email_unique])
     username = forms.CharField(required=True, min_length=4, max_length=16)
     class Meta:
         model = User

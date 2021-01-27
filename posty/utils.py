@@ -4,11 +4,13 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
 from geopy.geocoders import Nominatim  # Get city by address for example post card
+from .models import User
+from django.core.exceptions import ValidationError
 
 # Dodalem to bo zwykle unique nie pozwalalo na required = False (wartość null też była unikalna)
-def is_field_unique(form, field, model):
-    if form.cleaned_data.get(field) != "" and model.objects.filter(**{field: form.cleaned_data.get(field)}):
-        return False
+def is_email_unique(value):
+    if value != "" and User.objects.filter(**{'email': value}):
+        raise ValidationError('Istnieje już użytkownik z takim Emailem prosze wybierz inny lub zaloguj sie na swoje konto')
     return True
 
 

@@ -36,7 +36,7 @@
 	word-break:break-all;
 }
 
-#menu{margin-bottom:7vmin;}
+#menu{margin-bottom:5vmin;}
 
 .nav {
 	display:flex;
@@ -120,9 +120,9 @@
 		opacity: 100;
 		border:none;
 		background:none;
-		transition: left 1s ease-in-out;
+		transition: 1s ease-in-out;
 	}
 	#side-menu-trigger:focus+#navbar {left: 0px;}
 	#side-menu-trigger>i{font-size: 33px;}
-	#side-menu-trigger:focus {left: 100vw;}
+	#side-menu-trigger:focus {left: 100vw; transform:rotate(180deg);}
 }

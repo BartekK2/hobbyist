@@ -12,21 +12,21 @@ main {
 
 .information {
     display:flex;
-    height:20vh;
 	margin-bottom:5vh;
     margin: 10vh 10vw 10vh 10vw;
     align:center;
     justify-content:center;
+	background: #e4e4e4;
+	padding: 3vmin;
 }
 .inf_text{
-	height:20vh;
     text-align:justify;
-    overflow-y:auto;
+    overflow:hidden;
 }
 
 .inf_img{
-    height:20vh;
-    min-width:20vh !important;
+    height:12vh;
+    min-width:12vh !important;
 }
 #title_inf{margin-top:5vh;font-size:200%;text-align:center;}
 #everyone{
