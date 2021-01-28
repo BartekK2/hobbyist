@@ -7,7 +7,20 @@
 {% block body %}
 	<div id="filters">
 		<form method="GET">
-					<!-- Load Facebook SDK for JavaScript -->
+			<button id="filters_but" type="submit">Filtruj</button>
+			{% for field in myFilter.form %}
+					<div style="display:inline-block;"><p>{{field.label}}</p>{{field}}</div>
+			{% endfor %}
+		</form>
+	</div>
+	<main>	
+		{% include "newpost.html" %}
+		{% include "post.html"%}
+	</main>
+	{% include "navbar.html"%}
+	<footer>
+	strona stworzona w ramach projektu zwolnieni z teorii
+	<!-- Load Facebook SDK for JavaScript -->
 		  <div id="fb-root"></div>
 		  <script>
 			window.fbAsyncInit = function() {
@@ -33,16 +46,5 @@
 			logged_in_greeting="Skorzystaj z naszego bota!"
 			logged_out_greeting="Skorzystaj z naszego bota!">
 		  </div>
-			<button id="filters_but" type="submit">Filtruj</button>
-			{% for field in myFilter.form %}
-					<div style="display:inline-block;"><p>{{field.label}}</p>{{field}}</div>
-			{% endfor %}
-		</form>
-	</div>
-	<main>	
-		{% include "newpost.html" %}
-		{% include "post.html"%}
-	</main>
-	{% include "navbar.html"%}
-	<footer>strona stworzona w ramach projektu zwolnieni z teorii</footer>
+	</footer>
 {% endblock %}
