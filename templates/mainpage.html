@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 {% endblock %}
 {% block body %}
+	<script id="6012b73639fc85423fe345b8" src="https://dashboard.chatfuel.com/integration/fb-entry-point.js" async defer></script>
 	<div id="filters">
 		<form method="GET">
 			<button id="filters_but" type="submit">Filtruj</button>
@@ -20,31 +21,6 @@
 	{% include "navbar.html"%}
 	<footer>
 	strona stworzona w ramach projektu zwolnieni z teorii
-	<!-- Load Facebook SDK for JavaScript -->
-		  <div id="fb-root"></div>
-		  <script>
-			window.fbAsyncInit = function() {
-			  FB.init({
-				xfbml            : true,
-				version          : 'v9.0'
-			  });
-			};
 
-			(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = 'https://connect.facebook.net/pl_PL/sdk/xfbml.customerchat.js';
-			fjs.parentNode.insertBefore(js, fjs);
-		  }(document, 'script', 'facebook-jssdk'));</script>
-
-		  <!-- Your Chat Plugin code -->
-		  <div class="fb-customerchat"
-			attribution="setup_tool"
-			page_id="104174094878098"
-			theme_color="#d03737"
-			logged_in_greeting="Skorzystaj z naszego bota!"
-			logged_out_greeting="Skorzystaj z naszego bota!">
-		  </div>
 	</footer>
 {% endblock %}
