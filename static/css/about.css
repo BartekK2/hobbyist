@@ -36,6 +36,7 @@ main {
 	font-size:120%;
 	text-align:center;
 }
+#mob_i_tworcy{color:white;}
 @media only screen and (max-width: 540px) and (orientation: portrait) {
   .container {
     grid-template-columns: 1fr;

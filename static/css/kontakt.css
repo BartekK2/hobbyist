@@ -80,6 +80,7 @@ input::placeholder, textarea::placeholder{
 	margin-right:auto;
 	margin-bottom:10vh;
 }
+#mob_i_kontakt{color:white;}
 
 /* telefony */
 @media only screen and (max-width: 540px) {

@@ -92,6 +92,8 @@ input[type="date"]:focus::-webkit-calendar-picker-indicator {
 	opacity:0;
 }
 
+#mob_i_posty{color:white;}
+
 /* telefony */
 @media only screen and (max-width: 540px) {
   .container {

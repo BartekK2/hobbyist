@@ -51,6 +51,7 @@ p{height:25vh;overflow-y:auto;text-align: center;}
     border:solid 0.5vmin;
 }
 p{overflow-x:hidden;}
+#mob_i_info{color:white;}
 
 /*resizing*/
 @media only screen and (max-width: 540px) and (orientation: portrait) {

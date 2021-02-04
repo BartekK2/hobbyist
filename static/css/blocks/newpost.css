@@ -46,7 +46,7 @@
 	opacity:0;
 	border-radius:1vmax;
 	box-shadow: 0.7vw 0.7vw 3vw 1vw;
-	z-index:10;
+	z-index:100;
 }
 form *{color:var(--sec2);border:none;}
 form input, textarea, select{background:#303030;box-shadow: 0.5vmin 0.5vmin 1vmin 0.5vmin rgba(0,0,0,0.8);border-radius:2vmin;}

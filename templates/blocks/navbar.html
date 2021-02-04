@@ -23,17 +23,21 @@
 					{% endif %}
 		</ul>
 </div>
-<nav class="mobile-bottom-nav">
+
+<nav id="nav_mob" class="mobile-bottom-nav">
+
 	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
 		<div class="mobile-bottom-nav__item-content">
-			<button class="trigger" onclick="location.href='{% url 'MeetMe!' %}'"><i class="fas fa-comment-alt"></i></button>
+			<button class="trigger" onclick="location.href='{% url 'MeetMe!' %}'"><i id="mob_i_posty" class="fas fa-comment-alt"></i></button>
 		</div>		
 	</div>
+	
 	<div class="mobile-bottom-nav__item">		
 		<div class="mobile-bottom-nav__item-content">
-			<button class="trigger" onclick="location.href='{% url 'Profil' request.user.id %}'"><i class="fas fa-address-card"></i></button>
+			<button class="trigger" onclick="location.href='{% url 'Profil' request.user.id %}'"><i id="mob_i_profil" class="fas fa-address-card"></i></button>
 		</div>
 	</div>
+	
 	<div class="mobile-bottom-nav__item">
 		<div class="mobile-bottom-nav__item-content">
 			<button class="trigger"  onclick="showForm()" ><i class="fas fa-edit"></i></button>
@@ -42,9 +46,23 @@
 	
 	<div class="mobile-bottom-nav__item">
 		<div class="mobile-bottom-nav__item-content">
-			<button class="trigger" onclick="showInfo()"><i class="fas fa-info"></i></button>
+			<button class="trigger"><i id="mob_i_info mob_i_tworcy mob_i_kontakt" class="fas fa-info"></i></button>
+			<!-- sub nawigacja dla elementu na nawigacji głównej -->
+			<div class="sub_mob_nav">
+				<!-- elementy -->
+				<div class="subnav_button">
+					<button class="trigger" onclick="location.href='{% url 'o_tworcach' %}'"><i id="mob_i_tworcy" class="fas fa-users" aria-hidden="true"></i></button>	
+				</div>
+				<div class="subnav_button">
+					<button class="trigger" onclick="location.href='{% url 'kontakt' %}'"><i id="mob_i_kontakt" class="fas fa-address-book" aria-hidden="true"></i></button>
+				</div>
+				<div class="subnav_button">
+					<button class="trigger" onclick="location.href='{% url 'Info' %}'"><i id="mob_i_info" class="fas fa-info" aria-hidden="true"></i></button>
+				</div>
+			</div>
 		</div>		
 	</div>
+	
 	<div class="mobile-bottom-nav__item">
 		<div class="mobile-bottom-nav__item-content">
 			<button class="trigger"onclick="location.href='{% url 'Wylogowanie' %}'"><i class="fas fa-sign-out-alt"></i></button>
