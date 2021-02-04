@@ -93,7 +93,7 @@ form label{color:var(--sec1);}
     #bottom_inf *{margin-top:2vmin;width:90%;margin-left:auto;margin-right:auto;}
 	/* vh --> px 1vh ~ 6px, 1vw ~ 3px*/
 	#new_post .label{margin-top: 18px;}
-	#addnew {margin-top:12px;padding:4px 9px;border-radius:12px;}
+	#addnew {display:none;}
 	#close{top:6px;}
 	#id_tytul{height:24px;padding:3px;}
 	#id_opis{height:174;padding:3px;}

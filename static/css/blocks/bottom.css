@@ -1,3 +1,7 @@
+#next_page_bar{
+	display:inline-block;
+	width:100%;
+}
 #next_page, #prev_page{
 	display:inline-block;
 	position: relative;

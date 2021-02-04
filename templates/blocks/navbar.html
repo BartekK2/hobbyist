@@ -1,6 +1,5 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/blocks/navbar.css' %}">
-<button id="side-menu-trigger"><i class="fas fa-chevron-circle-right"></i></button>
 <div id="navbar">
 		<img id="logo_photo" alt="logo"src="{% static 'logo.png' %}" onclick="location.href='{% url 'MeetMe!' %}'"/>
 		{% if request.user.id %}
@@ -24,3 +23,31 @@
 					{% endif %}
 		</ul>
 </div>
+<nav class="mobile-bottom-nav">
+	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
+		<div class="mobile-bottom-nav__item-content">
+			<button class="trigger" onclick="location.href='{% url 'MeetMe!' %}'"><i class="fas fa-comment-alt"></i></button>
+		</div>		
+	</div>
+	<div class="mobile-bottom-nav__item">		
+		<div class="mobile-bottom-nav__item-content">
+			<button class="trigger" onclick="location.href='{% url 'Profil' request.user.id %}'"><i class="fas fa-address-card"></i></button>
+		</div>
+	</div>
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+			<button class="trigger"  onclick="showForm()" ><i class="fas fa-edit"></i></button>
+		</div>		
+	</div>
+	
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+			<button class="trigger" onclick="showInfo()"><i class="fas fa-info"></i></button>
+		</div>		
+	</div>
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+			<button class="trigger"onclick="location.href='{% url 'Wylogowanie' %}'"><i class="fas fa-sign-out-alt"></i></button>
+		</div>		
+	</div>
+</nav>
