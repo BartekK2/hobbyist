@@ -34,7 +34,11 @@
 	
 	<div class="mobile-bottom-nav__item">		
 		<div class="mobile-bottom-nav__item-content">
-			<button class="trigger" onclick="location.href='{% url 'Profil' request.user.id %}'"><i id="mob_i_profil" class="fas fa-address-card"></i></button>
+			{% if request.user.id %}
+				<button class="trigger" onclick="location.href='{% url 'Profil' request.user.id %}'"><i id="mob_i_profil" class="fas fa-address-card"></i></button>
+			{% else %}
+				<button class="trigger" onclick="location.href='{% url 'Logowanie' %}'"><i id="mob_i_profil" class="fas fa-sign-in-alt"></i></button>
+			{% endif %}
 		</div>
 	</div>
 	
