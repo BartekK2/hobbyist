@@ -1,0 +1,124 @@
+body{
+	margin:10vmin;
+	background: linear-gradient(45deg, var(--sec1), var(--main) 60%);
+	color: var(--sec1);	
+	overflow-x:none;
+	overflow-y:auto;
+}
+
+.container {
+	display:flex !important;
+	overflow-y: auto;
+}
+
+form{
+	max-height:50%;
+    padding:1.5vmin 4vmax 1.5vmin 4vmax !important;
+    background-color:#0000004f;
+    box-shadow:3vmin 3vmin 5px 0px rgba(0,0,0,0.75);
+}
+#messages{word-break:break;text-align:center;}
+.container * {
+	position:relative;
+}
+#anim_logo{
+	display:block;
+	width:45%;
+	margin:auto;
+}
+
+.login {
+	max-width:100vh;
+	margin:auto;
+	font-size:100%;
+	color: var(--sec1);
+}
+
+.login>form>input {
+	width: 100%;
+	height: 4vh;
+	margin-top: 3.5vh;
+	padding:0.5vh;
+	padding-left:0.5vw;
+	padding-right:0.5vw;
+	font-size:100%;
+	border:0;
+	box-shadow: 1.5vh 1.5vh 1.5vh #000000;
+	border-radius: 20vh;
+}
+
+#accept {
+	display:block;
+	width:40%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom:2vh;
+	padding:1vh 2vw 4vh 2vw;
+	cursor:pointer;
+	border-radius:20vh;
+}
+
+.description {
+	position:relative;
+	grid-area: description;
+	text-align:center;
+	
+}
+p{text-align:center;}
+
+a {
+	color: var(--sec2) !important;
+	text-decoration: none;
+}
+
+a::before {
+	position: absolute;
+	content: attr(data-content);
+	top: 0;
+	left: 0;
+	color: var(--sec1);
+	overflow: hidden;
+	transition: width 275ms ease;
+	width: 0;
+	white-space: nowrap;
+}
+
+a:hover::before {
+	width: 100%;
+}
+
+label::before {
+	position: absolute;
+	content: attr(data-content);
+	top: 0;
+	left: 0;
+	color: var(--sec2);
+	overflow: hidden;
+	transition: width 275ms ease;
+}
+
+label::before {
+	width: 0;
+	white-space: nowrap;
+}
+
+input:invalid+label::before {
+	width: 100%;
+}
+
+#zdj{
+	height:50vh;
+	margin:auto;
+}
+#id_username{margin-top:1vh;}
+
+/*resizing*/
+@media only screen and (max-width: 720px){
+	#zdj{display:none;}
+	/* vh --> px 1vh ~ 6px, 1vw ~ 3px*/
+	form{max-height:100%;padding:4px 24px 4px 24px !important;}
+	.login {max-width:100%;margin:auto;}
+	.login>form>input {height: 25px;margin-top: 20px;padding:3px;}
+	#accept {margin-bottom:12px;padding:6px 6px 24px 6px;}
+	#id_username{margin-top:3px;}
+}

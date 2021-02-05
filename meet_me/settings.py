@@ -21,9 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'r83#^985ceq2x2j5l)_92n8r8#$massebfi8$fzorsy)3h8xnt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['hobbyist.pl', 'ec2-3-129-208-240.us-east-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['*', 'hobbyist.pl', 'ec2-3-129-208-240.us-east-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -124,10 +124,14 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'hobbyistpl@gmail.com'
 EMAIL_HOST_PASSWORD = 'Ssap5002'
 
+if DEBUG:
+   STATIC_ROOT = os.path.join(BASE_DIR, '/static')
+else:
+   STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'static/css'),
+    os.path.join(BASE_DIR, 'static/css/blocks'),
     os.path.join(BASE_DIR, 'static/img'),
     os.path.join(BASE_DIR, 'static/js'),
 ]

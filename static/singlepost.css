@@ -1,0 +1,140 @@
+/* baza */
+.container {
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "sidebar info";
+}
+
+/* post */
+#post_content{
+	width:100%;
+	background:#f1f1f1;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+#image{
+	width:100%;
+	margin-top:4vh;
+	max-height:40vh;
+	align:center;
+}
+#image>img{
+	display: block;
+	max-height:40vh;
+	max-width:90%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius:2vmax;
+	box-shadow: 0vw 0.5vw 1.5vw;
+	object-fit: scale-down;
+}
+#tytul{
+	width:100%;
+	margin-top:2vh;
+	word-break:break-word;
+	text-align:center;
+	font-size:135%;
+}
+#opis{
+	height:auto;
+	margin:0 15vmin;
+	padding-bottom:7vh;
+	user-select: text;
+	word-break:break-word;
+	border-top:solid 0.25vmin var(--main);
+	overflow-y:auto;
+}
+
+#information{margin:5vh 15vmin 0 15vmin;}
+#autor{
+	margin-right:1vmin;
+	color: var(--sec1);
+	text-decoration:none;
+	cursor:pointer;
+	user-select: text;
+}
+#data{display:inline-block;margin-top:0;}
+#information i{margin-right: 1vmin;}
+#delete{
+	margin-right:1vh;
+	color:var(--main);
+	transition:0.5s;
+}
+#delete:hover{color: var(--sec1)}
+
+/* dodawanie komentarzy */
+#add_comment{
+	width:70%;
+	margin-left:50%;
+	transform:translate(-50%,0);
+}
+#add_comment>textarea{width:100%;height:15vmin;}
+#dodaj{
+	width:100%;
+	padding:0.5vh 0.5vw;
+	border:solid 0.2vw var(--main);
+	border-bottom:none;
+	cursor:pointer;
+}
+
+/* komentarze */
+#comments{height:auto;margin-bottom:2vh;padding:0 10vmin;}
+#comments i {margin-right:1vmin;}
+.comment{display:flex;width:100%;margin-top:3vh;}
+#profile_pic{
+	width:8vh;
+	height:8vh;
+	margin:auto;
+	margin-right:2vmin;
+	border-radius:50%;
+	object-fit: cover;
+	cursor:pointer;
+}
+#content{
+	width:100%;
+	padding:1vmin;
+	background:#fff;
+	overflow:hidden;
+}
+#tekst{
+	display:inline-block;
+	width:inherit;
+	max-height:20vh;
+	word-break: break-word;
+	user-select: text;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+#id_content{
+	padding:1vmin;
+	border: solid 0.25vw var(--main);
+	box-sizing:border-box;
+}
+#date{display:inline-block;}
+
+/* telefony */
+@media only screen and (max-width: 540px){
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "info";
+  }
+  
+	/* vh --> px 1vh ~ 6px, 1vw ~ 3px*/
+	#image{margin-top:24px;max-height:240px;}
+	#image>img{max-height:240px;border-radius:12px;}
+	#tytul{margin-top:12px;}
+	#opis{padding-bottom:28px;}
+	#information{margin:20px 15vmin 0 15vmin;}
+	#delete{margin-right:6px;}
+	#dodaj{padding:3px 3px;}
+	#comments{margin-bottom:12px;padding:0 5vmin;}
+	.comment{margin-top:18px;}
+	#profile_pic{width:48px;height:48px;}
+	#tekst{max-height:120px;}
+	#content{
+		padding:5px;
+	}
+}

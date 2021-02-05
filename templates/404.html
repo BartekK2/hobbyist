@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+	<title>Chłopie na co ty wchodzisz?</title>
+	<link rel="stylesheet" href="{% static 'css/style404.css' %}">
+{% endblock %}
+{% block body %}
+		{% include "navbar.html"%}
+		<main>
+			<p style="font-size:150%;margin-top:10vh;">Link na który próbowałeś wejść nie istnieje</p>
+			<p>Na co ty wchodzisz człowieku? haha</p>
+			<p style="font-size:600%; color: var(--sec1);">404 :c</p>
+		</main>
+{% endblock %}

@@ -1,0 +1,111 @@
+/* baza */
+main {
+  grid-area: main;
+  background: var(--sec2);
+  overflow-x:overlay;
+  overflow-y:auto;
+}
+.container {
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 0.45fr 2fr;
+  grid-template-areas:
+    "sidebar filters"
+    "sidebar main";
+}
+
+/* filtry */
+#filters {
+  grid-area: filters;
+  background: var(--sec3);
+  border-bottom: solid 0.5vh var(--main);
+}
+#filters>form{
+	height:100%;
+	padding:1vh 5vw;
+	text-align:center;
+    align-items: center;
+}
+#filters p {display:block;}
+#filters * {
+	margin-left:0.5vw;
+	margin-top:0.25vh;
+	padding:0.5vmin;
+	appearance:none;
+	border:none;
+	color:var(--sec1);
+	font-size:90%;
+}
+#filters input{color:var(--sec2);cursor:pointer;}
+#filters select {color:var(--sec2);cursor:pointer;}
+#filters select *{color:var(--sec2);}
+
+/* przycisk filtruj */
+#filters_but{
+	display:block;
+	position: relative;
+	margin-left:auto;
+	margin-right:auto;
+	padding-left: 7vmin;
+	padding-right: 7vmin;
+	background-color:var(--main);
+	color:var(--sec1);
+	text-align:center;
+	border-radius:10vmin;
+	cursor:pointer;
+	transition: 0.2s;
+	transform-style: preserve-3d;
+	border:none;
+	line-height: 1.5;
+	font-size:80%;
+}
+/* animacja wciskania przycisku */
+#filters_but::before{
+	  position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:var(--button_sec);
+      border-radius:inherit;
+      transform: translate3d(0, 0.5em, -1em);
+      transition: transform 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+#filters_but:hover {transform: translate(0, 0.25em);}
+#filters_but:hover::before { transform: translate3d(0, 0.25em, -1em);}
+
+#filters_but:active {transform: translate(0, 0.5em);}
+#filters_but:active::before {transform: translate3d(0, 0, -0.75em);}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    width: 1.5vwin;
+    height: 1.5vwin;
+	padding: 0.25vmin;
+	margin:0;
+	transition:opacity 0.5s;
+	transition-delay: 0.2s;
+	cursor:pointer;
+}
+input[type="date"]:focus::-webkit-calendar-picker-indicator {
+	opacity:0;
+}
+
+#mob_i_posty{color:white;}
+
+/* telefony */
+@media only screen and (max-width: 540px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 1fr 48px;
+    grid-template-areas:
+		"filters"
+		"main"
+		"mobile_nav";
+  }
+  .post {
+	margin-left:20vw;
+	margin-right:20vw;
+	}
+}

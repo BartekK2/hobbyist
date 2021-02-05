@@ -213,3 +213,7 @@ def kontakt(request):
         'form':form,
     }
     return render(request, "kontakt.html", kontekst)
+
+
+def error_404_view(request, exception):
+    return render(request, '404.html')
