@@ -38,7 +38,7 @@
 }
 #opis{
 	height:auto;
-	margin:0 15vmin;
+	margin:0 10vmin;
 	padding-bottom:7vh;
 	user-select: text;
 	word-break:break-word;
@@ -65,7 +65,7 @@
 
 /* dodawanie komentarzy */
 #add_comment{
-	width:70%;
+	width:80%;
 	margin-left:50%;
 	transform:translate(-50%,0);
 }
@@ -127,7 +127,7 @@
 	#image>img{max-height:240px;border-radius:12px;}
 	#tytul{margin-top:12px;}
 	#opis{padding-bottom:28px;}
-	#information{margin:20px 15vmin 0 15vmin;}
+	#information{margin:20px 10vmin 0 10vmin;}
 	#delete{margin-right:6px;}
 	#dodaj{padding:3px 3px;}
 	#comments{margin-bottom:12px;padding:0 5vmin;}

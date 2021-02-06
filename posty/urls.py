@@ -20,8 +20,10 @@ urlpatterns = [
     path('tworcy/', views.oTworcach, name="o_tworcach"),
     path('kontakt/', views.kontakt, name="kontakt"),
 ]
+''' TEST CZY BEZ TEGO ZADZIALA
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+'''
 urlpatterns += [
    url(r'^media/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.MEDIA_ROOT, 'show_indexes': settings.DEBUG}),
    url(r'^static/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.STATIC_ROOT, 'show_indexes': settings.DEBUG}),

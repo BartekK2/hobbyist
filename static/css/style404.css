@@ -9,3 +9,12 @@ main {grid-area:error_text;background:var(--sec2);}
 main>p {
 	text-align:center;
 }
+
+@media only screen and (max-width: 540px) and (orientation: portrait) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "error_text";
+  }
+}

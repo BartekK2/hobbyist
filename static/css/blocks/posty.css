@@ -89,4 +89,5 @@ a{text-decoration:none; }
 	#photo >img {height: 120px;border-radius: 12px 12px 0 0;}
 	#title{height:48px;}
 	#content {height:150px;}
+	.post {margin-left:2vw;margin-right:2vw;}
 }
