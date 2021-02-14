@@ -3,9 +3,9 @@
 {% block extrahead %}
 	<title>
 		{% if post.autor == request.user%}
-			Usuń Post
+			Usuń Post / Hobbyist.pl
 		{% elif user == request.user %}
-			Usuń konto
+			Usuń konto :( / Hobbyist.pl
 		{% endif %}
 	</title>
 	<link rel="stylesheet" href="{% static 'css/delete_view.css' %}">

@@ -46,7 +46,7 @@
 	overflow-y:auto;
 }
 
-#information{margin:5vh 15vmin 0 15vmin;}
+#information{margin:5vh 10vmin 0 10vmin;}
 #autor{
 	margin-right:1vmin;
 	color: var(--sec1);

@@ -3,9 +3,9 @@
 {% block extrahead %}
 	<title>
 		{% if profile_user == request.user %}
-			Twój Profil
+			Twój Profil / Hobbyist.pl
 		{% else %} 
-			Profil {{profile_user.username}}
+			Profil {{profile_user.username}} / Hobbyist.pl
 		{% endif %}
 	</title>
 	<link rel="stylesheet" href="{% static 'css/profile.css' %}">

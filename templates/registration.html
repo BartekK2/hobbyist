@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block extrahead %}
-	<title>Rejestracja</title>
+	<title>Rejestracja / Hobbyist.pl</title>
 	<link rel="stylesheet" href="{% static 'css/log_reg.css' %}">
 {% endblock %}
 {% block body %}
@@ -12,7 +12,7 @@
 					<img id="anim_logo"src="{% static 'img/hobbyist_anim.svg' %}"/>
 					
 					{{form.username}}
-					<label data-content="Nazwa Uzytkownika" form=form.username>Nazwa Uzytkownika*</label><br>
+					<label data-content="Nazwa użytkownika" form=form.username>Nazwa użytkownika*</label><br>
 					{{form.username.errors}}
 					
 					{{form.email}}
