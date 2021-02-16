@@ -77,3 +77,6 @@ body *::selection {
 ::-webkit-scrollbar-thumb {
 	border: solid 0.6vw #000000;
 }
+
+/* cookies */
+.cookiesEU-text{padding-right:0 !important;}
