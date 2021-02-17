@@ -50,14 +50,24 @@ form{
 #accept {
 	display:block;
 	width:40%;
+	margin-top: 3.5vh;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom:2vh;
-	padding:1vh 2vw 4vh 2vw;
-	cursor:pointer;
+	padding:0.5vh;
+	padding-left:0.5vw;
+	padding-right:0.5vw;
+	border:0;
 	border-radius:20vh;
+	font-size:100%;
+	box-shadow: 1.5vh 1.5vh 1.5vh #000000;
+	cursor:pointer;
+	transition: 0.2s;
 }
 
+#accept:hover{
+	background:var(--sec1);
+}
 .description {
 	position:relative;
 	grid-area: description;
@@ -119,6 +129,15 @@ input:invalid+label::before {
 	form{max-height:100%;padding:4px 24px 4px 24px !important;}
 	.login {max-width:100%;margin:auto;}
 	.login>form>input {height: 25px;margin-top: 20px;padding:3px;}
-	#accept {margin-bottom:12px;padding:6px 6px 24px 6px;}
 	#id_username{margin-top:3px;}
+	#accept {
+		margin-top: 9px;
+		margin-bottom:12px;
+		padding:3px;
+		padding-left:1.5px;
+		padding-right:1.5px;
+		border-radius:120px;
+		font-size:100%;
+		box-shadow: 9px 9px 9px #000000;
+	}
 }

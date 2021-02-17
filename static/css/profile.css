@@ -112,6 +112,7 @@ main {
 	text-align:center;
 	font-size:95%;
 	font-weight:bold;
+	word-break: break-word;
 }
 
 /* informacje edit */

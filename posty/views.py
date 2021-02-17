@@ -43,6 +43,7 @@ def registration(request):
         return redirect('MeetMe!')
     else:
         form, profile_form = CreateUserForm(), UserProfileForm()
+        '''
         if request.method == 'POST':
             form, profile_form = CreateUserForm(request.POST), UserProfileForm(request.POST)
             if form.is_valid() and profile_form.is_valid():
@@ -60,6 +61,7 @@ def registration(request):
                 username = form.cleaned_data.get('username')
                 messages.success(request, f'Konto użytkownika {username} zostało stworzone.')
                 return redirect('Logowanie')
+        '''
         kontekst = {'form': form, 'profile_form': profile_form}
         return render(request, "registration.html", kontekst)
 
@@ -76,7 +78,7 @@ def edit_profile(request):
                 try:
                     profile.place = geolocalize(profile_form)
                 except:
-                    profile.place = ''
+                    profile.place = f"Nieprawidłowe dane: {profile_form.cleaned_data.get('place')}"
                 profile.save()
                 return redirect('Profil', request.user.id)
         paginator = Paginator(obiekty, 12)

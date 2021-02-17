@@ -42,7 +42,7 @@ def geolocalize(profile_form):
     geolocator = Nominatim(user_agent='meet_my')
     if profile_form.cleaned_data.get('place') != "":
         location_ = profile_form.cleaned_data.get('place')
-        location = geolocator.geocode(location_, addressdetails=True, timeout=None)
+        location = geolocator.geocode(location_, addressdetails=True, timeout=10)
         info = location.raw['address']
         # Poszukaj wśród danych zwróconych możliwe dane zwracające np miasto wieś itd
         possibilities = ['city', 'village', 'administrative']

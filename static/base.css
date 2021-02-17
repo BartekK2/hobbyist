@@ -79,4 +79,4 @@ body *::selection {
 }
 
 /* cookies */
-.cookiesEU-text{padding-right:0;}
+.cookiesEU-text{padding-right:0 !important;}
