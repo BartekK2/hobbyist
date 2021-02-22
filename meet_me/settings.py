@@ -20,7 +20,7 @@ SECRET_KEY = 'r83#^985ceq2x2j5l)_92n8r8#$massebfi8$fzorsy)3h8xnt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['hobbyist.pl', 'ec2-3-129-208-240.us-east-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['127.0.0.1','hobbyist.pl', 'ec2-3-129-208-240.us-east-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -119,7 +119,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'hobbyistpl@gmail.com'
-EMAIL_HOST_PASSWORD = 'Ssap5002'
+EMAIL_HOST_PASSWORD = 'Haselko20055002'
 
 if DEBUG:
    STATIC_ROOT = os.path.join(BASE_DIR, '/static')

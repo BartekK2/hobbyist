@@ -14,6 +14,7 @@ main {
 
 /* profil */
 #profile {
+	position: relative;
 	display: grid;
 	grid-area: profile;
 	grid-template-columns: 33% 34% 33%;
@@ -21,14 +22,11 @@ main {
 	grid-template-areas:
     "contact photo info";
 	background: var(--sec2);
-	box-shadow: 1vw 1vw 0.75vw #000000;
 	border-bottom: solid 0.5vh #000000;
 
 }
-#view{
-	position:relative;
-	grid-area:photo
-}
+#view{grid-area:photo}
+
 #picture_container{
 	display:flex;
 	height:80%;
@@ -36,7 +34,6 @@ main {
 	justify-content:center;
 }
 #profile_photo{
-	position:relative;
 	width: 21vmin;
 	height: 21vmin;
 	background-color:var(--main);
@@ -128,6 +125,7 @@ main {
 	height:100%;
 	left:0;
 	top:0;
+	z-index: 1;
 }
 
 #contact>ul li{
@@ -153,7 +151,6 @@ ul.social-media-list {list-style-type: none;padding-left:0.5vw;}
 #contact>ul input{width:100%;border:0;}
 form>li>input {width:100%;border:0;}
 #contact>ul>li>a{text-decoration: none;color:var(--main);}
-
 #mob_i_profil{color:white;}
 
 /* telefony */
@@ -177,4 +174,5 @@ form>li>input {width:100%;border:0;}
 	}
 	/* vh --> px 1vh ~ 6px, 1vw ~ 3px*/
 	#usun_konto{margin-top:60px;}
+	#profile div span{font-size:100%;}
 }

@@ -43,7 +43,6 @@ def registration(request):
         return redirect('MeetMe!')
     else:
         form, profile_form = CreateUserForm(), UserProfileForm()
-        '''
         if request.method == 'POST':
             form, profile_form = CreateUserForm(request.POST), UserProfileForm(request.POST)
             if form.is_valid() and profile_form.is_valid():
@@ -61,7 +60,6 @@ def registration(request):
                 username = form.cleaned_data.get('username')
                 messages.success(request, f'Konto użytkownika {username} zostało stworzone.')
                 return redirect('Logowanie')
-        '''
         kontekst = {'form': form, 'profile_form': profile_form}
         return render(request, "registration.html", kontekst)
 
@@ -75,12 +73,23 @@ def edit_profile(request):
             profile_form = UserProfileForm(data=request.POST, files=request.FILES, instance=request.user.userprofile)
             if profile_form.is_valid():
                 profile = profile_form.save(commit=False)
+
+                # On case if user's are fucking stupid and they don't see text above input
+                profile.ig = profile_form.cleaned_data.get('ig').replace('https://www.instagram.com/', '')
+                profile.fb = profile_form.cleaned_data.get('fb').replace('https://www.facebook.com/', '')
+                profile.tt = profile_form.cleaned_data.get('tt').replace('https://twitter.com/', '')
+
                 try:
                     profile.place = geolocalize(profile_form)
                 except:
-                    profile.place = f"Nieprawidłowe dane: {profile_form.cleaned_data.get('place')}"
+                    # Avoiding repetitive "Nieprawidłowe dane: Nieprawidłowe dane: Nieprawidłowe dane: ... bad input"
+                    if profile.place.startswith("Nieprawidłowe dane"):
+                        pass
+                    else:
+                        profile.place = f"Nieprawidłowe dane: {profile_form.cleaned_data.get('place')}"
                 profile.save()
                 return redirect('Profil', request.user.id)
+
         paginator = Paginator(obiekty, 12)
         strona = request.GET.get('strona')
         obiekty = paginator.get_page(strona)
@@ -219,3 +228,6 @@ def kontakt(request):
 
 def error_404_view(request, exception):
     return render(request, '404.html')
+   
+def test(request):
+    return render(request, 'test.html')

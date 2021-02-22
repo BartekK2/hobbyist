@@ -39,7 +39,7 @@ class UserProfile(models.Model):
     fb = models.CharField(max_length=100, blank=True)
     ig = models.CharField(max_length=100, blank=True)
     tt = models.CharField(max_length=100, blank=True)
-    place = models.CharField(max_length=200, blank=True, null=True)
+    place = models.CharField(max_length=70, blank=True, null=True)
     profile_pic = ResizedImageField(size=[700, 700], quality=40, upload_to='gallery/', blank=True)
 
     def __str__(self):

@@ -14,7 +14,7 @@ choice_list.sort()
 
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField(required=False, max_length=100, validators=[is_email_unique])
-    username = forms.CharField(required=True, min_length=4, max_length=16)
+    username = forms.CharField(required=True, min_length=4, max_length=24)
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']

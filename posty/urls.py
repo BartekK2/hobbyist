@@ -19,6 +19,7 @@ urlpatterns = [
     path('info/', views.info, name="Info"),
     path('tworcy/', views.oTworcach, name="o_tworcach"),
     path('kontakt/', views.kontakt, name="kontakt"),
+    path('test/', views.test, name="test"),
 ]
 urlpatterns += [
    url(r'^media/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.MEDIA_ROOT, 'show_indexes': settings.DEBUG}),

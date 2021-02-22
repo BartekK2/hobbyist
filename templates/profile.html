@@ -34,9 +34,9 @@
 				{% if profile_user.userprofile.profile_pic %}src="{{profile_user.userprofile.profile_pic.url}}" 
 				{% else %} src = "{% static 'logo.png' %}" {% endif %}
 			alt="error"></img></div>
-			<span>{{profile_user.username}}
+			<span onclick="location.href='{% url 'edit_profile' %}'">{{profile_user.username}}
 			{% if profile_user == request.user %}
-				<i id="edit_profile" onclick="location.href='{% url 'edit_profile' %}'" class="fas fa-cog"></i>
+				<i id="edit_profile" class="fas fa-cog"></i>
 			{% endif %}
 			</span>
 		</div>
