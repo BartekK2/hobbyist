@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'r83#^985ceq2x2j5l)_92n8r8#$massebfi8$fzorsy)3h8xnt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.hobbyist.pl', 'hobbyist.pl', 'ec2-3-129-208-240.us-east-2.compute.amazonaws.com']
 
@@ -156,7 +156,6 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/przekierowanie/'
 SOCIAL_AUTH_FACEBOOK_SCOPE = [
     'email',
 ]
-'''
 
 # fix 2
 # Force https redirect
@@ -165,4 +164,4 @@ SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Force HTTPS in the final URIs
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-'''
+SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.11'
