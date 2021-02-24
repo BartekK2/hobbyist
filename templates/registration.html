@@ -32,6 +32,9 @@
 					
 			  	<p>Masz już konto? <a href="{% url 'Logowanie' %}"data-content="Zaloguj się tutaj!">Zaloguj się tutaj!</a></p>
 			  	<button type="submit" id="accept" name="Create User">Stwórz konto</button>
+				<div id="additional_login">
+    				<a id="fb_al" href="{% url 'social:begin' 'facebook' %}">Zaloguj się przez facebooka</a>
+				</div>
 				<p>Korzystając z naszej strony jednocześnie wyrażasz zgode na <a target="_blank" href="http://www.hobbyist.pl/static/regulamin.pdf"> regulamin użytkowania</a>.
 				Prosimy o nie podawanie prawdziwego nazwiska, używanie pseudonimu.</p>
 			</form>

@@ -121,7 +121,16 @@ input:invalid+label::before {
 	margin:auto;
 }
 #id_username{margin-top:1vh;}
-
+#additional_login{display:flex; justify-content: center;}
+#fb_al{
+    background:#3b5998;
+    padding:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    border-radius:20px;
+    margin-top:8px;
+    margin-bottom:5px;
+}
 /*resizing*/
 @media only screen and (max-width: 720px){
 	#zdj{display:none;}
