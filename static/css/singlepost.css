@@ -130,11 +130,9 @@
 	#information{margin:20px 10vmin 0 10vmin;}
 	#delete{margin-right:6px;}
 	#dodaj{padding:3px 3px;}
-	#comments{margin-bottom:12px;padding:0 5vmin;}
+	#comments{margin-bottom:70px;padding:0 5vmin;}
 	.comment{margin-top:18px;}
 	#profile_pic{width:48px;height:48px;}
 	#tekst{max-height:120px;}
-	#content{
-		padding:5px;
-	}
+	#content{padding:5px;}
 }
