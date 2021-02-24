@@ -20,7 +20,7 @@ SECRET_KEY = 'r83#^985ceq2x2j5l)_92n8r8#$massebfi8$fzorsy)3h8xnt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','hobbyist.pl', 'ec2-3-129-208-240.us-east-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'hobbyist.pl', 'ec2-3-129-208-240.us-east-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -32,9 +32,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #Moje aplikacje
+    # Moje aplikacje
     'posty',
+    # Biblioteki
     'django_filters',
+    'social_django',
 
 ]
 MIDDLEWARE = [
@@ -45,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',  # Fb login
 ]
 
 ROOT_URLCONF = 'meet_me.urls'
@@ -60,10 +63,18 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Fb login
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 WSGI_APPLICATION = 'meet_me.wsgi.application'
 
@@ -113,6 +124,7 @@ USE_TZ = True
 DATE_FORMAT = "d-m-Y"
 
 LOGIN_URL='Logowanie'
+LOGIN_REDIRECT_URL = 'MeetMe!'
 
 GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
 EMAIL_USE_TLS = True
@@ -137,3 +149,10 @@ if DEBUG: STATICFILES_DIRS += os.path.join(BASE_DIR, 'static'),
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+SOCIAL_AUTH_FACEBOOK_KEY = '766633903961140'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'd7802ad11d7475ad9778a624a6a724a8'  # App Secret
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/przekierowanie/'
+SOCIAL_AUTH_FACEBOOK_SCOPE = [
+    'email',
+]

@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404  # Rendering
 from .forms import *
 # Models
-from .models import Post, Comment
+from .models import Post, Comment, UserProfile
 from django.contrib.auth.models import User
 # Login and authentication system
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from social_django.models import UserSocialAuth
 from django.contrib import messages
 from .filters import PostFilter  # Filter posts by for example category etc.
 from django.core.paginator import Paginator  # Next and previous pages
@@ -231,3 +232,10 @@ def error_404_view(request, exception):
    
 def test(request):
     return render(request, 'test.html')
+
+def przekierowanie(request):
+    if UserProfile.objects.filter(user=request.user):
+        return redirect('MeetMe!')
+    else:
+        p = UserProfile.objects.create(user=request.user)
+        return redirect('MeetMe!')

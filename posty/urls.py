@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/', views.login_page, name='Logowanie'),
     path('wyloguj/', views.logout_user, name='Wylogowanie'),
     path('rejestracja/', views.registration, name='Rejestracja'),
+    path('przekierowanie/', views.przekierowanie, name="przekierowanie"),
     path('profil/<int:pk>', views.profile, name='Profil'),
     path('profil/<int:pk>/usun', views.delete_user, name='delete_user'),
     path('edycja_profilu/', views.edit_profile, name='edit_profile'),
