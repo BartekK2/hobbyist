@@ -20,9 +20,10 @@
 				{% endfor %}
 				{{form.errors}}
 				<p>Nie masz jeszcze konta? <a href="{% url 'Rejestracja' %}"data-content="Zarejestruj się tutaj!">Zarejestruj się tutaj!</a></p>
-				<button type="submit" id="accept" name="Create User">Zaloguj</button>
 				<div id="additional_login">
-    				<a id="fb_al" href="{% url 'social:begin' 'facebook' %}">Zaloguj się przez facebooka</a>
+					<button type="submit" class="accept" name="Create User">Zaloguj</button>
+    				<button type="button" class="accept" id="fb_al" onclick="location.href='{% url 'social:begin' 'facebook' %}'">
+						Zaloguj się przez <i class="fab fa-facebook"></i></button>
 				</div>
 				<p>Korzystając z naszej strony jednocześnie wyrażasz zgode na <a target="_blank" href="{% static 'regulamin.pdf' %}"> regulamin użytkowania</a>.
 				Prosimy o nie podawanie prawdziwego nazwiska, używanie pseudonimu.</p>
