@@ -110,8 +110,8 @@ def profile(request, pk):
             if form.is_valid():
                 post = form.save(commit=False)
                 post.autor = request.user
-		if request.user.userprofile.place:
-            		post.city = request.user.userprofile.place
+                if request.user.userprofile.place:
+                    post.city = request.user.userprofile.place
                 post.save()
                 return redirect('Profil', pk=pk)
     paginator = Paginator(obiekty, 12)
@@ -192,8 +192,8 @@ def index(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.autor = request.user
-	    if request.user.userprofile.place:
-            	post.city = request.user.userprofile.place
+            if request.user.userprofile.place:
+                post.city = request.user.userprofile.place
             post.save()
             return redirect('MeetMe!')
     if 'miejscowosc' in request.GET:
